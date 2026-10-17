@@ -56,8 +56,6 @@
 		<nav class="nav" id="nav">
 			<a href="#story">La storia</a>
 			<a href="#play">Come si gioca</a>
-			<a href="#world">Il castello</a>
-			<a href="#bestiary">Bestiario</a>
 			<a href="#gifts">Doni</a>
 			<a href="#screens">Immagini</a>
 			<a href="changelog.html">Novità</a>
@@ -89,7 +87,6 @@
 			</div>
 			<p class="hero-meta"><span class="badge">Versione 0.12.1 · 17 ottobre 2026</span><span>Prototipo in sviluppo, aggiornato spesso</span></p>
 		</div>
-		<div class="hero-princess" aria-hidden="true"><img class="princess" src="../img/princess.png" alt="" width="204" height="472"><span class="hero-glow"></span></div>
 	</div>
 </section>
 
@@ -127,79 +124,6 @@
 			<article class="card reveal"><img class="icon" src="../img/icon_potion.png" alt="" width="72" height="72"><h3>Una mano e una tasca</h3><p>Niente inventario: un oggetto in mano, una cianfrusaglia in tasca, i tuoi <img class="heart" src="../img/heart.png" alt="♥"> e il mana. Il resto lo porti addosso, e si vede.</p></article>
 			<article class="card reveal"><img class="icon" src="../img/icon_die.png" alt="" width="72" height="72"><h3>Ogni discesa è nuova</h3><p>Stanze, corridoi, nemici e tesori nascono dal seed della partita: ogni discesa è un castello diverso, e lo stesso seed rifà lo stesso castello.</p></article>
 			<article class="card reveal"><img class="icon" src="../img/icon_key.png" alt="" width="72" height="72"><h3>Un castello pieno di segreti</h3><p>Muri a cui bussare, stanze dorate chiuse a chiave, porte che non dovrebbero esserci. E una storia che si scopre solo scendendo.</p></article>
-		</div>
-		<div class="rooms frame reveal">
-			<div>
-				<h3>Stanze che non ti aspetti</h3>
-				<p>Fra un'arena e l'altra il castello ha i suoi incontri: il negozio, dove tutto si paga in promesse, la fontana che cura, il cavaliere accasciato, e stanze che si fanno trovare quando vogliono loro.</p>
-				<ul class="chips"><li>il pozzo del ranocchio</li><li>la fata madrina</li><li>la casetta di marzapane</li><li>i cristalli che cantano</li><li>l'uccello d'oro</li><li>il cavaliere in catene</li><li>il forziere maledetto</li><li>il gufo sapiente</li><li>la sala della sfida</li><li>il calderone dell'erborista</li></ul>
-			</div>
-			<div>
-				<h3>E nei corridoi</h3>
-				<ul class="chips"><li>teste di drago</li><li>pendoli</li><li>botole</li><li>rovi</li><li>gabbie</li><li>bocchette che soffiano via il mana</li><li>spuntoni</li><li>feritoie</li><li>lastre che crollano</li><li>specchi stregati</li></ul>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="section world" id="world" aria-labelledby="world-title">
-	<div class="wrap">
-		<h2 class="section-title" id="world-title">Il castello</h2>
-		<p class="lead">Sotto la torre il castello cambia faccia a ogni discesa: ogni piano ha il suo ambiente, coi suoi mostri, le sue luci e i suoi guardiani.</p>
-		<div class="biomes">
-<article class="biome" style="--fog:#1f1c24"><div class="biome-art"><img src="../img/room_dungeon.png" alt="I sotterranei" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>I sotterranei</h3><p>Pietra e terra battuta, catene e stendardi, ossa negli angoli: il castello com'era una volta, sotto.</p><p class="biome-mobs"><span>Ci vivono:</span> Goblin, Scheletro arciere, Ratto gigante, Ghoul</p></div></article>
-<article class="biome" style="--fog:#291f1a"><div class="biome-art"><img src="../img/room_noble.png" alt="Le stanze nobiliari" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>Le stanze nobiliari</h3><p>Parquet, marmo a scacchi, tappezzerie rosse e ritratti che ti guardano passare. Più luce, ma non meno pericoli.</p><p class="biome-mobs"><span>Ci vivono:</span> Goblin, Scheletro guerriero, Pollo volante, Spettro</p></div></article>
-<article class="biome" style="--fog:#0f171a"><div class="biome-art"><img src="../img/room_caves.png" alt="Le caverne" loading="lazy" width="428" height="310"></div><div class="biome-body"><h3>Le caverne</h3><p>Roccia grezza e stalattiti, pozze d'acqua, cristalli e funghetti che fanno luce verde. Niente finestre: solo lanterne posate a terra.</p><p class="biome-mobs"><span>Ci vivono:</span> Lupo, Ragno gigante, Ratto gigante, Verme</p></div></article>
-<article class="biome" style="--fog:#1a122b"><div class="biome-art"><img src="../img/room_tower.png" alt="La torre del mago" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>La torre del mago</h3><p>Volta blu con le stelle, cerchi di rune che brillano, librerie, alambicchi e sfere di cristallo: qui le stanze fanno magie da sole.</p><p class="biome-mobs"><span>Ci vivono:</span> Elementale del fuoco, Grimorio volante, Elementale del ghiaccio, Spettro</p></div></article>
-<article class="biome" style="--fog:#141c17"><div class="biome-art"><img src="../img/room_prison.png" alt="Le segrete del castello" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>Le segrete del castello</h3><p>Acciottolato bagnato, celle con le sbarre, catene e paglia marcia. Buie, e senza finestre.</p><p class="biome-mobs"><span>Ci vivono:</span> Scheletro guerriero, Zombie, Scheletro arciere, Ratto gigante</p></div></article>
-			<article class="biome biome-more">
-				<div class="biome-art"><span aria-hidden="true">?</span></div>
-				<div class="biome-body"><h3>E più giù?</h3><p>Il castello scende più in basso di così. Quello che c'è, lo scopri scendendo.</p></div>
-			</article>
-		</div>
-	</div>
-</section>
-
-<section class="section bestiary" id="bestiary" aria-labelledby="bestiary-title">
-	<div class="wrap">
-		<h2 class="section-title" id="bestiary-title">Il bestiario</h2>
-		<p class="lead">Mostri delle fiabe fatti di voxel, a pezzi e animati, ognuno col suo modo di muoversi e di colpire. Nel gioco sono 53: questi sono i primi che incontrerai.</p>
-		<div class="mobs">
-<figure class="mob"><img src="../img/enemy_goblin.png" alt="" loading="lazy" width="76" height="100"><figcaption>Goblin</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_skeleton.png" alt="" loading="lazy" width="72" height="146"><figcaption>Scheletro arciere</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_rat.png" alt="" loading="lazy" width="70" height="38"><figcaption>Ratto gigante</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_ghoul.png" alt="" loading="lazy" width="62" height="57"><figcaption>Ghoul</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_bomber.png" alt="" loading="lazy" width="84" height="112"><figcaption>Goblin bombarolo</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_skeleton_warrior.png" alt="" loading="lazy" width="68" height="148"><figcaption>Scheletro guerriero</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_chicken.png" alt="" loading="lazy" width="56" height="45"><figcaption>Pollo volante</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_ghost.png" alt="" loading="lazy" width="72" height="90"><figcaption>Spettro</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_magpie.png" alt="" loading="lazy" width="54" height="36"><figcaption>Gazza ladra</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_wolf.png" alt="" loading="lazy" width="70" height="52"><figcaption>Lupo</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_spider.png" alt="" loading="lazy" width="82" height="55"><figcaption>Ragno gigante</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_worm.png" alt="" loading="lazy" width="74" height="48"><figcaption>Verme</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_puffball.png" alt="" loading="lazy" width="68" height="70"><figcaption>Vescia</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_boar.png" alt="" loading="lazy" width="56" height="43"><figcaption>Cinghiale</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_wyvern.png" alt="" loading="lazy" width="72" height="47"><figcaption>Viverna</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_fire_elemental.png" alt="" loading="lazy" width="84" height="130"><figcaption>Elementale del fuoco</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_grimoire.png" alt="" loading="lazy" width="114" height="64"><figcaption>Grimorio volante</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_ice_elemental.png" alt="" loading="lazy" width="64" height="84"><figcaption>Elementale del ghiaccio</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_candle.png" alt="" loading="lazy" width="68" height="108"><figcaption>Candela stregata</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_jelly.png" alt="" loading="lazy" width="100" height="84"><figcaption>Gelatina</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_zombie.png" alt="" loading="lazy" width="60" height="140"><figcaption>Zombie</figcaption></figure>
-<figure class="mob"><img src="../img/enemy_cockatrice.png" alt="" loading="lazy" width="52" height="47"><figcaption>Coccatrice</figcaption></figure>
-		</div>
-		<h3 class="sub-title">Prima di ogni scala, un guardiano</h3>
-		<p class="lead">Troll, ettin, maghi del fuoco, re d'ossa: ogni guardiano ha le sue fasi, le sue combo e un anello di luce a terra che ti dice dove sta per colpire. Leggilo, scansati, colpisci.</p>
-		<div class="guardians">
-<figure class="guardian"><img src="../img/enemy_troll.png" alt="" loading="lazy" width="144" height="188"><figcaption>Troll</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_ettin.png" alt="" loading="lazy" width="168" height="198"><figcaption>Ettin</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_great_serpent.png" alt="" loading="lazy" width="64" height="100"><figcaption>Il serpente gigante</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_mage.png" alt="" loading="lazy" width="130" height="238"><figcaption>Mago del fuoco</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_bog_troll.png" alt="" loading="lazy" width="144" height="188"><figcaption>Troll di palude</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_crystal_golem.png" alt="" loading="lazy" width="152" height="206"><figcaption>Golem di cristallo</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_genie.png" alt="" loading="lazy" width="66" height="106"><figcaption>Il genio della lampada</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_witch.png" alt="" loading="lazy" width="82" height="78"><figcaption>La strega</figcaption></figure>
-<figure class="guardian"><img src="../img/enemy_skeleton_king.png" alt="" loading="lazy" width="104" height="208"><figcaption>Re degli scheletri</figcaption></figure>
 		</div>
 	</div>
 </section>
@@ -272,9 +196,11 @@
 
 <footer class="footer">
 	<div class="wrap footer-in">
-		<p><img src="../img/icon.png" alt="" width="24" height="24"> Fatto con Godot da HAPPY SQUID INC.</p>
-		<p class="muted">Questo sito è fatto dal codice del gioco, versione 0.12.1: nomi, numeri e immagini sono quelli veri.</p>
-		<p class="muted">Caratteri: Jacquard 24 e Pixelify Sans (SIL Open Font License).</p>
+		<p class="footer-brand">
+			<span class="maker"><img src="../img/happy_squid.png" alt="" width="72" height="72">HAPPY SQUID INC.</span>
+			<span class="godot"><img src="../img/godot_logo.svg" alt="" width="28" height="28">Fatto con Godot</span>
+		</p>
+		<p class="muted">Caratteri: Jacquard 24 e Pixelify Sans (SIL Open Font License). Logo di Godot di Andrea Calabró (CC BY 4.0).</p>
 	</div>
 </footer>
 
