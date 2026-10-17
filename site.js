@@ -5,6 +5,61 @@
 	"use strict";
 	var doc = document;
 	var list = function (selector, from) { return Array.prototype.slice.call((from || doc).querySelectorAll(selector)); };
+	var calm = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	// Il cielo: stelline quadrate, sempre le stesse (un generatore col suo seme), che brillano piano
+	var sky = doc.querySelector(".sky");
+	if (sky && sky.getContext) {
+		var g = sky.getContext("2d");
+		var seed = 7;
+		var rnd = function () { seed = (seed * 16807) % 2147483647; return seed / 2147483647; };
+		var stars = [];
+		for (var s = 0; s < 240; s++) stars.push({ x: rnd(), y: rnd(), big: rnd() < 0.14, phase: rnd() * 6.28, speed: 0.5 + rnd() * 1.5 });
+		var fit = function () {
+			var dpr = Math.min(window.devicePixelRatio || 1, 2);
+			sky.width = Math.round(innerWidth * dpr);
+			sky.height = Math.round(innerHeight * dpr);
+			g.setTransform(dpr, 0, 0, dpr, 0, 0);
+		};
+		var paint = function (t) {
+			g.clearRect(0, 0, innerWidth, innerHeight);
+			for (var i = 0; i < stars.length; i++) {
+				var star = stars[i];
+				var a = calm ? 0.7 : 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(t / 1000 * star.speed + star.phase));
+				var size = star.big ? 3 : 2;
+				g.fillStyle = "rgba(255, " + (star.big ? 236 : 226) + ", 200, " + a.toFixed(3) + ")";
+				g.fillRect(Math.round(star.x * innerWidth), Math.round(star.y * innerHeight), size, size);
+			}
+			if (!calm) requestAnimationFrame(paint);
+		};
+		fit();
+		addEventListener("resize", function () { fit(); if (calm) paint(0); });
+		requestAnimationFrame(paint);
+	}
+
+	// Come si gioca: le righe d'oro fra le schede, come le stelle di una costellazione
+	var map = doc.querySelector(".map");
+	if (map) {
+		var links = map.querySelector(".links");
+		var drawLinks = function () {
+			var box = map.getBoundingClientRect();
+			var cards = list(".card", map).map(function (card) {
+				var r = card.getBoundingClientRect();
+				return [r.left - box.left + r.width / 2, r.top - box.top];
+			});
+			var order = [0, 1, 2, 5, 4, 3, 0];  // in giro: la prima fila, poi la seconda al contrario
+			var lines = "";
+			for (var k = 1; k < order.length && cards.length >= 6; k++) {
+				var a = cards[order[k - 1]], b = cards[order[k]];
+				lines += '<line x1="' + a[0] + '" y1="' + a[1] + '" x2="' + b[0] + '" y2="' + b[1] + '"/>';
+			}
+			links.innerHTML = lines;
+		};
+		drawLinks();
+		addEventListener("resize", drawLinks);
+		addEventListener("load", drawLinks);
+		if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(drawLinks);
+	}
 
 	// Il menu sul telefono
 	var toggle = doc.querySelector(".menu-toggle");

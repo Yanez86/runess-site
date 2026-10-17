@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://yanez86.github.io/runess-site/it/changelog.html">
 <meta property="og:image" content="https://yanez86.github.io/runess-site/media/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0806">
+<meta name="theme-color" content="#060a1c">
 <link rel="icon" href="../img/icon.png">
 <link rel="preload" href="../fonts/Jacquard24-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="../fonts/PixelifySans.ttf" as="font" type="font/ttf" crossorigin>
@@ -27,25 +27,26 @@ document.documentElement.classList.add("js");
 </script>
 </head>
 <body class="page-changelog">
+<canvas class="sky" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Vai al contenuto</a>
 
-<header class="topbar" id="top">
-	<div class="wrap topbar-in">
-		<a class="brand" href="./" aria-label="Runess, la pagina principale"><img src="../img/icon.png" alt="" width="32" height="32"><span>Runess</span></a>
+<header class="top" id="top">
+	<div class="wrap top-in">
+		<a class="logo" href="./" aria-label="Runess, la pagina principale">Runess</a>
 		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><span></span></button>
 		<nav class="nav" id="nav">
 			<a href="./">← Torna al sito</a>
 			<a href="changelog.html" aria-current="page">Novità</a>
 			<a class="lang" href="../changelog.html" hreflang="en" lang="en" data-lang="en" title="Read this page in English">English</a>
-			<a class="btn btn-gold btn-small" href="https://yanez86.itch.io/runess" rel="noopener">Scarica</a>
+			<a class="btn gold small" href="https://yanez86.itch.io/runess" rel="noopener">Scarica</a>
 		</nav>
 	</div>
 </header>
 
-<main id="main" class="section changelog">
+<main id="main" class="changelog">
 	<div class="wrap">
 		<header class="page-head">
-			<h1 class="section-title">Novità</h1>
+			<h1>Novità</h1>
 			<p class="lead">Tutto quello che è cambiato, versione per versione: 38 versioni dalla prima build. Sono le stesse novità che il gioco mostra nella schermata di avvio.</p>
 			<p class="note">Le novità parlano di tutto il gioco: qua e là anticipano qualcosa.</p>
 		</header>
@@ -96,8 +97,8 @@ document.documentElement.classList.add("js");
 			<div class="cl-main">
 				<div class="cl-tools">
 					<input type="search" id="cl-filter" placeholder="Cerca nelle novità…" aria-label="Cerca nelle novità…" autocomplete="off">
-					<button class="btn btn-small" type="button" id="cl-expand">Apri tutte</button>
-					<button class="btn btn-small" type="button" id="cl-collapse">Chiudi tutte</button>
+					<button class="btn" type="button" id="cl-expand">Apri tutte</button>
+					<button class="btn" type="button" id="cl-collapse">Chiudi tutte</button>
 				</div>
 				<p class="cl-none" hidden>Nessuna novità con queste parole.</p>
 <details class="release" id="v0-12-1" open><summary><span class="rel-head"><span class="rel-version">0.12.1</span><span class="rel-latest">ultima</span></span><span class="rel-meta"><time datetime="2026-10-17">17 ottobre 2026</time> · 18 novità</span></summary><ul class="rel-notes"><li>Le cianfrusaglie non si trovano più da subito: arrivano con un ricordo nuovo, il Barattolo dei tesori, che compare sulla lavagnetta quando sconfiggi per la prima volta il guardiano del sesto piano. Comprato (12 promesse), sta su uno sgabello alla destra del letto, e da quel momento le cianfrusaglie escono nei vasi, nelle casse e al negozio. Chi il sesto piano l'ha già battuto lo trova già sulla lavagnetta.</li><li>Il goblin bombarolo annuncia lo scoppio come i guardiani: un anello rosso a terra con la cortina di luce che sale, sempre più forte man mano che sta per scoppiare, e la mano e il bordo dello schermo che si accendono se ci sei dentro. Lo stesso per l'omino di pan di zenzero e il bollitore.</li><li>Il Vecchio televisore non sta più nella tua camera: è nella stanza degli altari, contro il muro da cui entri, dalla parte del tavolo dei giochi, e arriva con un divano di velluto verde, con la coperta all'uncinetto sullo schienale, e un tappeto ovale intrecciato. E la stanza degli altari ora è in ordine come la camera: niente parquet rovinato, ossa, calcinacci né ragnatele, e così il corridoio che ci porta.</li><li>L'HUD è rifatto. Il coraggio è una stella in fondo alla barra del mana, che si riempie d'oro dal basso, col livello accanto. Quando sali di livello un annuncio in alto dice quante stelle ci sono da accendere, poi la sua stella vola accanto al coraggio e resta lì col tasto della pausa finché non le accendi; a porte chiuse, quando le stelle non si accendono, si fa grigia col lucchetto e si riaccende appena le porte si aprono. In basso niente più riquadro: l'oggetto in mano sta in una casella, l'incantesimo in un tondo più grande, con le cariche come gemme sul bordo e la ricarica che gira come una lancetta, la cianfrusaglia in una tasca cucita, e i tasti sul bordo. Lo scudo sta accanto ai cuori, uno scudino per ogni colpo che regge; gli effetti a tempo sono badge in alto a destra, a sinistra della minimappa: le pozioni che fanno ancora effetto, con la cornice che si consuma, e la maledizione del forziere maledetto, un teschio viola con quanta vita in più hanno i nemici. Pozioni, incantesimi, cianfrusaglie, promesse e chiavi hanno icone nuove, disegnate a pixel come quelle dei doni.</li><li>Anche la pausa è rifatta, nello stile del nuovo HUD: sta al centro dello schermo e scurisce tutto quel che c'è dietro, e ogni scheda è fatta allo stesso modo, col titolo, a destra il suo riassunto, sotto l'elenco e a destra il dettaglio di quel che punti, col mouse o col controller. Nella scheda Discesa trovi quel che hai addosso come nell'HUD: i cuori, il mana e il coraggio, l'oggetto, l'incantesimo e la cianfrusaglia, le pozioni che fanno ancora effetto, la maledizione del forziere e tutti i doni, ognuno col suo dettaglio. Nelle Statistiche il dettaglio dice chi cambia ogni numero, con le icone; negli Obiettivi c'è la medaglia grande. In fondo il piano e la versione, e «Esci» apre un menu con «Ricomincia la discesa», che chiede di premere due volte, «Torna al titolo» ed «Esci dal gioco». Il banner di un obiettivo raggiunto aspetta che riprendi a giocare.</li><li>Il dono della fata madrina non sta più in un riquadro a parte: è un badge accanto alla minimappa, con le pozioni, la sua icona con sopra un velo che si chiude come una lancetta e ti dice quanto manca al rintocco che lo farà svanire.</li><li>Il riquadro di un obiettivo raggiunto non compare più in alto al centro: compare in basso a destra, resta qualche secondo, poi scende giù oltre il bordo dello schermo e sparisce.</li><li>Prendendo un dono non compare più il messaggio che ripeteva cosa fa: lo dice già il suo riquadro, prima di prenderlo. Resta solo quando c'è qualcosa in più da sapere: che ha preso il posto della forma del dardo o del compagno di prima, che per ora dorme, o che un <img class="heart" src="../img/heart_black.png" alt="♡"> non ci sta più.</li><li>I polli volanti e chi scende in picchiata come loro (pipistrelli, gazze ladre, gargoyle, oche-cigno, viverne, fusi volanti) non ti restano più incollati davanti alla faccia: la picchiata ti attraversa ed escono dall'altra parte.</li><li>Gli altarini che salgono dal pavimento, col dono del guardiano o di un'arena ripulita, non ti salgono più sotto i piedi e non chiudono più la strada: in una stanza del guardiano piccola l'altarino poteva salire davanti al passaggio della scala e lasciare il piano senza uscita, e in un'arena con una porta sola poteva salire davanti alla porta e chiuderti dentro.</li><li>Il mostro sotto il letto e gli altri guardiani che sbucano da sotto il pavimento, se escono proprio sotto i tuoi piedi, non ti lasciano più incastrata dentro di loro: si scostano e ne esci camminando. E il diavoletto non ti ricompare più addosso, né lascia in mezzo alla strada un corpo invisibile se crolla mentre è sparito nello zolfo.</li><li>«Sbloccati» ti rimette solo dove ci stai davvero, mai dentro qualcosa che sta in mezzo alla stanza.</li><li>E prende o usa quello che guardi: con una pozione a terra vicino e un dono davanti, prendi il dono, senza doverti allontanare dalla pozione. Fra due cose a portata vince quella che hai nel mirino, poi quella più al centro della vista; solo se davanti non c'è niente, la più vicina. E quello che sta dietro un muro non si prende più.</li><li>Sette ricordi hanno un grado solo: il Salvadanaio di porcellana, il Carillon, la Tazza di camomilla, il Letto dei sette nani, l'Elmo del cavaliere, gli Stivali delle sette leghe e il Portagioie. Fanno quel che facevano al primo grado, e il Letto dei sette nani non ti fa più trovare meno coraggio. Per comprare tutti i ricordi a tutti i gradi ora bastano 847 promesse.</li><li>La schermata di avvio è rifatta, nello stile della pausa: cresce con la finestra, e titolo e menu stanno a sinistra, così la stanza della principessa si vede tutta. «Continua» riprende subito l'ultima principessa e dice chi è e dove era arrivata. «Le principesse» ha una scheda per slot, col nome e il regno, il piano, l'atto, quanto hai fatto del gioco, i giorni nella torre, promesse, ricordi, uscite, morti e il tempo giocato, e la stanza dietro diventa la sua; per cancellarne una c'è il cestino nella scheda, o Canc (X col controller), e la domanda arriva dentro la scheda. In alto a destra «Novità», col cartellino «nuove» finché non le hai lette e l'elenco delle versioni, e «Wiki», che avvisa degli spoiler sotto il suo pulsante.</li><li>Con tante discese l'elenco dei canali del Vecchio televisore non sborda più sotto lo schermo: resta dentro e scorre.</li><li>Nel Vecchio televisore il percorso di una discesa lunga non si rimpicciolisce più fino a non capire quali piani sono: va a capo su più righe, con una freccia che torna a sinistra, e i riquadri restano grandi col numero del piano sotto.</li><li>Nelle novità le versioni che hanno un nome (come la 0.7.0, Balance update) lo mostrano accanto al numero senza più sbordare nella colonna a sinistra; la data è nel titolo a destra.</li></ul></details>
@@ -144,12 +145,12 @@ document.documentElement.classList.add("js");
 </main>
 
 <footer class="footer">
-	<div class="wrap footer-in">
-		<p class="footer-brand">
+	<div class="wrap">
+		<p class="brand">
 			<span class="maker"><img src="../img/happy_squid.png" alt="" width="72" height="72">HAPPY SQUID INC.</span>
-			<span class="godot"><img src="../img/godot_logo.svg" alt="" width="28" height="28">Fatto con Godot</span>
+			<span class="godot"><img src="../img/godot.png" alt="" width="72" height="72">Fatto con Godot</span>
 		</p>
-		<p class="muted">Caratteri: Jacquard 24 e Pixelify Sans (SIL Open Font License). Logo di Godot di Andrea Calabró (CC BY 4.0).</p>
+		<p class="credits">Caratteri: Jacquard 24 e Pixelify Sans (SIL Open Font License). Logo di Godot di Andrea Calabró (CC BY 4.0).</p>
 	</div>
 </footer>
 

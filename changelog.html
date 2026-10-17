@@ -16,7 +16,7 @@
 <meta property="og:url" content="https://yanez86.github.io/runess-site/changelog.html">
 <meta property="og:image" content="https://yanez86.github.io/runess-site/media/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0806">
+<meta name="theme-color" content="#060a1c">
 <link rel="icon" href="img/icon.png">
 <link rel="preload" href="fonts/Jacquard24-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="fonts/PixelifySans.ttf" as="font" type="font/ttf" crossorigin>
@@ -27,25 +27,26 @@ document.documentElement.classList.add("js");
 </script>
 </head>
 <body class="page-changelog">
+<canvas class="sky" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="topbar" id="top">
-	<div class="wrap topbar-in">
-		<a class="brand" href="./" aria-label="Runess, home page"><img src="img/icon.png" alt="" width="32" height="32"><span>Runess</span></a>
+<header class="top" id="top">
+	<div class="wrap top-in">
+		<a class="logo" href="./" aria-label="Runess, home page">Runess</a>
 		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open the menu"><span></span></button>
 		<nav class="nav" id="nav">
 			<a href="./">← Back to the site</a>
 			<a href="changelog.html" aria-current="page">Changelog</a>
 			<a class="lang" href="it/changelog.html" hreflang="it" lang="it" data-lang="it" title="Leggi questa pagina in italiano">Italiano</a>
-			<a class="btn btn-gold btn-small" href="https://yanez86.itch.io/runess" rel="noopener">Download</a>
+			<a class="btn gold small" href="https://yanez86.itch.io/runess" rel="noopener">Download</a>
 		</nav>
 	</div>
 </header>
 
-<main id="main" class="section changelog">
+<main id="main" class="changelog">
 	<div class="wrap">
 		<header class="page-head">
-			<h1 class="section-title">Changelog</h1>
+			<h1>Changelog</h1>
 			<p class="lead">Everything that changed, version by version: 38 releases since the first build. These are the same notes the game shows on its title screen.</p>
 			<p class="note">The notes cover the whole game: here and there they give something away.</p>
 		</header>
@@ -96,8 +97,8 @@ document.documentElement.classList.add("js");
 			<div class="cl-main">
 				<div class="cl-tools">
 					<input type="search" id="cl-filter" placeholder="Search the changelog…" aria-label="Search the changelog…" autocomplete="off">
-					<button class="btn btn-small" type="button" id="cl-expand">Expand all</button>
-					<button class="btn btn-small" type="button" id="cl-collapse">Collapse all</button>
+					<button class="btn" type="button" id="cl-expand">Expand all</button>
+					<button class="btn" type="button" id="cl-collapse">Collapse all</button>
 				</div>
 				<p class="cl-none" hidden>No changes match those words.</p>
 <details class="release" id="v0-12-1" open><summary><span class="rel-head"><span class="rel-version">0.12.1</span><span class="rel-latest">latest</span></span><span class="rel-meta"><time datetime="2026-10-17">17 October 2026</time> · 18 changes</span></summary><ul class="rel-notes"><li>Trinkets are no longer around from the start: they come with a new keepsake, the Treasure Jar, which appears on the board the first time you defeat the guardian of the sixth floor. Once bought (12 promises) it sits on a stool to the right of the bed, and from then on trinkets turn up in vases, crates and shops. If you have already beaten the sixth floor, it is already on your board.</li><li>The goblin bomber now warns of its blast like the guardians do: a red ring on the floor with a curtain of light rising from it, growing stronger as the blast draws near, and your hand and the edge of the screen light up if you are inside. The same goes for the gingerbread man and the kettle.</li><li>The Old Television is no longer in your bedroom: it now stands in the altar room, against the wall you come in through, on the side of the toy table, and it comes with a green velvet sofa, a crocheted blanket over its back, and an oval braided rug. And the altar room is now as tidy as the bedroom: no worn parquet, bones, rubble or cobwebs, and the same goes for the corridor that leads there.</li><li>The HUD has been redone. Courage is a star at the end of the mana bar that fills with gold from the bottom, with your level beside it. When you level up, a banner at the top tells you how many stars there are to light, then its star flies next to your courage and stays there with the pause key until you light them; behind closed doors, when stars can't be lit, it turns grey with a padlock and lights up again as soon as the doors open. At the bottom there is no more box: the item in your hand sits in a slot, the spell in a bigger round frame, with its charges as gems on the rim and the recharge sweeping round like a clock hand, the trinket in a stitched pocket, and the keys on the rim. The shield sits next to your hearts, one little shield for each hit it can still take; timed effects are badges at the top right, to the left of the minimap: potions still working, with a border that wears away, and the curse of the cursed chest, a purple skull showing how much more health enemies have. Potions, spells, trinkets, promises and keys have new icons, drawn in pixel art like those of the gifts.</li><li>The pause menu has been redone too, in the style of the new HUD: it sits in the middle of the screen and dims everything behind it, and every tab is laid out the same way, with its title, its summary on the right, the list below and on the right the detail of whatever you point at, with the mouse or the controller. In the Descent tab you find what you carry just as in the HUD: hearts, mana and courage, the item, the spell and the trinket, the potions still working, the curse of the chest and all your gifts, each with its detail. In Stats the detail tells you what changes each number, with icons; in Achievements there is the big medal. At the bottom are the floor and the version, and «Quit» opens a menu with «Restart the descent», which asks you to press twice, «Back to title» and «Quit game». The banner of an achievement you reach waits until you resume.</li><li>The fairy godmother's gift no longer sits in a box of its own: it is a badge next to the minimap, with the potions, its icon under a veil that closes like a clock hand and tells you how long until the toll that will make it fade.</li><li>The banner of an achievement you reach no longer appears at the top centre: it appears at the bottom right, stays a few seconds, then slides down past the edge of the screen and disappears.</li><li>Taking a gift no longer shows a message repeating what it does: its card already tells you, before you take it. A message remains only when there is something more to know: that it took the place of your previous bolt shape or companion, that it is asleep for now, or that there is no room for another <img class="heart" src="img/heart_black.png" alt="♡">.</li><li>Flying chickens and everything that swoops down like them (bats, magpies, gargoyles, swan geese, wyverns, flying spindles) no longer stay glued in front of your face: their dive goes right through you and they come out the other side.</li><li>Altars rising from the floor, with a guardian's gift or the gift of a cleared arena, no longer rise under your feet or block your way: in a small guardian room the altar could rise in front of the passage to the stairs and leave the floor with no way out, and in an arena with a single door it could rise in front of the door and shut you in.</li><li>The monster under the bed and the other guardians that burst out from under the floor no longer leave you stuck inside them when they come out right beneath your feet: they move aside and you walk out. And the imp no longer reappears on top of you, nor leaves an invisible body in your way if it falls while vanished in its sulphur.</li><li>«Get unstuck» only puts you back where you really fit, never inside something standing in the middle of the room.</li><li>E takes or uses what you are looking at: with a potion on the floor nearby and a gift in front of you, you take the gift, without having to walk away from the potion. Between two things in reach, the one under your crosshair wins, then the one nearest the middle of your view; only if there is nothing in front of you, the nearest one. And things behind a wall can no longer be taken.</li><li>Seven keepsakes now have a single grade: the Porcelain Piggy Bank, the Music Box, the Cup of Chamomile, the Seven Dwarfs' Beds, the Knight's Helm, the Seven-League Boots and the Jewelry Box. They do what they did at their first grade, and the Seven Dwarfs' Beds no longer make you find less courage. Buying every keepsake at every grade now takes 847 promises.</li><li>The title screen has been redone in the style of the pause menu: it grows with the window, and the title and menu sit on the left, so the princess's room shows in full. «Continue» takes you straight back to your last princess and tells you who she is and how far she got. «The princesses» has a card for each slot, with her name and kingdom, floor, act, how much of the game you have done, days in the tower, promises, keepsakes, escapes, deaths and time played, and the room behind becomes hers; to delete one there is the bin on the card, or Delete (X on the controller), and the question appears inside the card. At the top right «What's new», tagged «new» until you have read it and listing every version, and «Wiki», which warns you about spoilers right under its button.</li><li>With many descents the Old Television's channel list no longer spills below the screen: it stays inside and scrolls.</li><li>In the Old Television the route of a long descent no longer shrinks until you cannot tell the floors apart: it wraps onto several rows, with an arrow leading back to the left, and the boxes stay big with the floor number below.</li><li>In the updates, versions with a name (like 0.7.0, Balance update) show it next to the number without spilling into the left column any more; the date is in the title on the right.</li></ul></details>
@@ -144,12 +145,12 @@ document.documentElement.classList.add("js");
 </main>
 
 <footer class="footer">
-	<div class="wrap footer-in">
-		<p class="footer-brand">
+	<div class="wrap">
+		<p class="brand">
 			<span class="maker"><img src="img/happy_squid.png" alt="" width="72" height="72">HAPPY SQUID INC.</span>
-			<span class="godot"><img src="img/godot_logo.svg" alt="" width="28" height="28">Made with Godot</span>
+			<span class="godot"><img src="img/godot.png" alt="" width="72" height="72">Made with Godot</span>
 		</p>
-		<p class="muted">Fonts: Jacquard 24 and Pixelify Sans (SIL Open Font License). Godot logo by Andrea Calabró (CC BY 4.0).</p>
+		<p class="credits">Fonts: Jacquard 24 and Pixelify Sans (SIL Open Font License). Godot logo by Andrea Calabró (CC BY 4.0).</p>
 	</div>
 </footer>
 
