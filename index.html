@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runess — the princess who saves herself</title>
+<meta name="description" content="A first-person shooter through procedural voxel floors: a princess, tired of waiting for her knight, goes down through the castle alone, armed with an enchanted bolt. Free for Windows and Linux.">
+<link rel="canonical" href="https://yanez86.github.io/runess-site/">
+<link rel="alternate" hreflang="en" href="https://yanez86.github.io/runess-site/">
+<link rel="alternate" hreflang="it" href="https://yanez86.github.io/runess-site/it/">
+<link rel="alternate" hreflang="x-default" href="https://yanez86.github.io/runess-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Runess">
+<meta property="og:title" content="Runess — the princess who saves herself">
+<meta property="og:description" content="A first-person shooter through procedural voxel floors: a princess, tired of waiting for her knight, goes down through the castle alone, armed with an enchanted bolt. Free for Windows and Linux.">
+<meta property="og:url" content="https://yanez86.github.io/runess-site/">
+<meta property="og:image" content="https://yanez86.github.io/runess-site/media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0806">
+<link rel="icon" href="img/icon.png">
+<link rel="preload" href="fonts/Jacquard24-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/PixelifySans.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script>
+// Prima di disegnare la pagina: c'è JavaScript; lo splash solo la prima volta in una sessione, e mai a chi chiede
+// meno movimento.
+(function () {
+	try {
+		var chosen = new URLSearchParams(location.search).get("lang");
+		if (chosen) localStorage.setItem("runess-lang", chosen);
+		else chosen = localStorage.getItem("runess-lang");
+		var browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "").slice(0, 2);
+		if ((chosen || browser) === "it") location.replace("it/" + location.hash);
+	} catch (e) {}
+})();
+(function () {
+	var root = document.documentElement;
+	root.classList.remove("no-js");
+	root.classList.add("js");
+	try {
+		var seen = sessionStorage.getItem("runess-splash");
+		var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		if (!seen && !calm && !/[?&]nosplash/.test(location.search)) root.classList.add("splash-on");
+	} catch (e) {}
+})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="splash" id="splash" aria-hidden="true">
+	<canvas class="splash-canvas"></canvas>
+	<div class="splash-text">
+		<p class="splash-tagline">The princess who saves herself</p>
+		<p class="splash-hint">Click or press any key</p>
+	</div>
+</div>
+
+<header class="topbar" id="top">
+	<div class="wrap topbar-in">
+		<a class="brand" href="#top" aria-label="Runess, home page"><img src="img/icon.png" alt="" width="32" height="32"><span>Runess</span></a>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open the menu"><span></span></button>
+		<nav class="nav" id="nav">
+			<a href="#story">Story</a>
+			<a href="#play">Gameplay</a>
+			<a href="#world">The castle</a>
+			<a href="#bestiary">Bestiary</a>
+			<a href="#gifts">Gifts</a>
+			<a href="#screens">Screenshots</a>
+			<a href="changelog.html">Changelog</a>
+			<a class="lang" href="it/" hreflang="it" lang="it" data-lang="it" title="Leggi questa pagina in italiano">Italiano</a>
+			<a class="btn btn-gold btn-small" href="#download">Download</a>
+		</nav>
+	</div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+	<div class="hero-bg" aria-hidden="true"><img src="media/hero.webp" alt="" width="1600" height="836"></div>
+	<div class="wrap hero-in">
+		<div class="hero-copy">
+			<p class="kicker">Once upon a time there was a princess…</p>
+			<h1 class="title" id="hero-title">Runess</h1>
+			<p class="tagline">…who saved herself.</p>
+			<p class="pitch">Tired of waiting for a knight to rescue her, the princess walks out of her tower alone and goes down through the castle floor by floor, armed with a single spell: the enchanted bolt. Every descent is different, every room is a trial, and a guardian waits before every staircase.</p>
+			<div class="cta">
+				<a class="btn btn-gold btn-big" href="https://yanez86.itch.io/runess" rel="noopener">
+					<span class="arrow-down" aria-hidden="true"></span>
+					<span><strong>Download free</strong><small>Windows and Linux, on itch.io</small></span>
+				</a>
+				<a class="btn btn-big" href="#trailer">
+					<span class="play-icon" aria-hidden="true"></span>
+					<span><strong>Watch the trailer</strong><small>0:30</small></span>
+				</a>
+			</div>
+			<p class="hero-meta"><span class="badge">Version 0.12.1 · 17 October 2026</span><span>Prototype in active development, updated often</span></p>
+		</div>
+		<div class="hero-princess" aria-hidden="true"><img class="princess" src="img/princess.png" alt="" width="204" height="472"><span class="hero-glow"></span></div>
+	</div>
+</section>
+
+<section class="section trailer" id="trailer" aria-labelledby="trailer-title">
+	<div class="wrap">
+		<h2 class="section-title" id="trailer-title">Trailer</h2>
+		<div class="frame video">
+			<video controls preload="none" playsinline width="1280" height="720" poster="media/trailer_poster_en.webp">
+				<source src="media/trailer_en.mp4" type="video/mp4">
+				<a href="media/trailer_en.mp4">Your browser can't play this video: download it instead.</a>
+			</video>
+		</div>
+	</div>
+</section>
+
+<section class="section story" id="story" aria-labelledby="story-title">
+	<div class="wrap story-in">
+		<div class="story-text reveal">
+			<h2 class="section-title" id="story-title">The story</h2>
+			<p class="dropcap">At the top of the castle's tallest tower, a princess waits for a knight to rescue her, just like in the fairy tales. She waits a long time. Knights set out, but none of them ever reach the top.</p>
+			<p>One morning she has had enough. She pushes the great door open and starts going down, floor by floor, with a single spell in her hand: the enchanted bolt. She'll find the knights along the way, slumped against the walls, with their promises.</p>
+			<p class="story-end">Nobody is coming to save her. She saves herself.</p>
+		</div>
+	</div>
+</section>
+
+<section class="section play" id="play" aria-labelledby="play-title">
+	<div class="wrap">
+		<h2 class="section-title" id="play-title">How it plays</h2>
+		<p class="lead">A voxel action FPS with procedural floors and a roguelite heart: go down, gather gifts, fall, and start again stronger.</p>
+		<div class="cards">
+			<article class="card reveal"><img class="icon" src="img/icon_heart.png" alt="" width="72" height="64"><h3>She saves herself</h3><p>Fast first-person action. No sword, no armour: just the enchanted bolt, a little comet that charges, bounces, burns, freezes and puts to sleep, depending on the gifts you carry.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_skull.png" alt="" width="72" height="64"><h3>Every room is a trial</h3><p>Step in, the doors slam shut and enemies rise from the smoke, wave after wave. They open again only when the last one falls. Spikes, arrow slits, bewitched mirrors: watch your step.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_gift.png" alt="" width="72" height="72"><h3>Gifts with a price</h3><p>124 gifts to collect: they change your bolt, your stride, your <img class="heart" src="img/heart.png" alt="♥">. Some give a lot and take something back. Choose carefully what you carry down.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_potion.png" alt="" width="72" height="72"><h3>One hand, one pocket</h3><p>No inventory: one item in your hand, one trinket in your pocket, your <img class="heart" src="img/heart.png" alt="♥"> and your mana. Everything else you wear, and it shows.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_die.png" alt="" width="72" height="72"><h3>Every descent is new</h3><p>Rooms, corridors, enemies and treasure all grow from the run's seed: every descent is a different castle, and the same seed builds the same castle again.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_key.png" alt="" width="72" height="72"><h3>A castle full of secrets</h3><p>Walls to knock on, golden rooms behind locked doors, doors that shouldn't be there. And a story you only uncover by going down.</p></article>
+		</div>
+		<div class="rooms frame reveal">
+			<div>
+				<h3>Rooms you won't expect</h3>
+				<p>Between one arena and the next, the castle has its own encounters: the shop, where everything costs promises, the healing fountain, the slumped knight, and rooms that only show up when they feel like it.</p>
+				<ul class="chips"><li>the frog's well</li><li>the fairy godmother</li><li>the gingerbread house</li><li>the singing crystals</li><li>the golden bird</li><li>the chained knight</li><li>the cursed chest</li><li>the wise owl</li><li>the hall of challenge</li><li>the herbalist's cauldron</li></ul>
+			</div>
+			<div>
+				<h3>And in the corridors</h3>
+				<ul class="chips"><li>dragon heads</li><li>pendulums</li><li>trapdoors</li><li>brambles</li><li>cages</li><li>vents that blow your mana away</li><li>spikes</li><li>arrow slits</li><li>crumbling floors</li><li>bewitched mirrors</li></ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section world" id="world" aria-labelledby="world-title">
+	<div class="wrap">
+		<h2 class="section-title" id="world-title">The castle</h2>
+		<p class="lead">Below the tower, the castle changes its face with every descent: each floor has its own place, with its own monsters, lights and guardians.</p>
+		<div class="biomes">
+<article class="biome" style="--fog:#1f1c24"><div class="biome-art"><img src="img/room_dungeon.png" alt="The Cellars" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>The Cellars</h3><p>Stone and packed earth, chains and banners, bones in the corners: the castle as it once was, underneath.</p><p class="biome-mobs"><span>Home to:</span> Goblin, Skeleton Archer, Giant Rat, Ghoul</p></div></article>
+<article class="biome" style="--fog:#291f1a"><div class="biome-art"><img src="img/room_noble.png" alt="The Noble Halls" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>The Noble Halls</h3><p>Parquet, chequered marble, red wallpaper and portraits that watch you go by. More light, but no fewer dangers.</p><p class="biome-mobs"><span>Home to:</span> Goblin, Skeleton Warrior, Flying Chicken, Wraith</p></div></article>
+<article class="biome" style="--fog:#0f171a"><div class="biome-art"><img src="img/room_caves.png" alt="The Caves" loading="lazy" width="428" height="310"></div><div class="biome-body"><h3>The Caves</h3><p>Raw rock and stalactites, pools of water, crystals and little mushrooms glowing green. No windows: only lanterns set on the ground.</p><p class="biome-mobs"><span>Home to:</span> Wolf, Giant Spider, Giant Rat, Worm</p></div></article>
+<article class="biome" style="--fog:#1a122b"><div class="biome-art"><img src="img/room_tower.png" alt="The Wizard's Tower" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>The Wizard's Tower</h3><p>A blue vault full of stars, glowing rune circles, bookshelves, alembics and crystal balls: here the rooms cast spells of their own.</p><p class="biome-mobs"><span>Home to:</span> Fire Elemental, Flying Grimoire, Ice Elemental, Wraith</p></div></article>
+<article class="biome" style="--fog:#141c17"><div class="biome-art"><img src="img/room_prison.png" alt="The Castle Dungeons" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>The Castle Dungeons</h3><p>Wet cobblestones, barred cells, chains and rotten straw. Dark, and without a single window.</p><p class="biome-mobs"><span>Home to:</span> Skeleton Warrior, Zombie, Skeleton Archer, Giant Rat</p></div></article>
+			<article class="biome biome-more">
+				<div class="biome-art"><span aria-hidden="true">?</span></div>
+				<div class="biome-body"><h3>And further down?</h3><p>The castle goes deeper than this. What's down there, you'll find out on the way.</p></div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<section class="section bestiary" id="bestiary" aria-labelledby="bestiary-title">
+	<div class="wrap">
+		<h2 class="section-title" id="bestiary-title">Bestiary</h2>
+		<p class="lead">Fairy-tale monsters built from voxels, jointed and animated, each with its own way of moving and striking. There are 53 in the game: these are the first you'll meet.</p>
+		<div class="mobs">
+<figure class="mob"><img src="img/enemy_goblin.png" alt="" loading="lazy" width="76" height="100"><figcaption>Goblin</figcaption></figure>
+<figure class="mob"><img src="img/enemy_skeleton.png" alt="" loading="lazy" width="72" height="146"><figcaption>Skeleton Archer</figcaption></figure>
+<figure class="mob"><img src="img/enemy_rat.png" alt="" loading="lazy" width="70" height="38"><figcaption>Giant Rat</figcaption></figure>
+<figure class="mob"><img src="img/enemy_ghoul.png" alt="" loading="lazy" width="62" height="57"><figcaption>Ghoul</figcaption></figure>
+<figure class="mob"><img src="img/enemy_bomber.png" alt="" loading="lazy" width="84" height="112"><figcaption>Goblin bomber</figcaption></figure>
+<figure class="mob"><img src="img/enemy_skeleton_warrior.png" alt="" loading="lazy" width="68" height="148"><figcaption>Skeleton Warrior</figcaption></figure>
+<figure class="mob"><img src="img/enemy_chicken.png" alt="" loading="lazy" width="56" height="45"><figcaption>Flying Chicken</figcaption></figure>
+<figure class="mob"><img src="img/enemy_ghost.png" alt="" loading="lazy" width="72" height="90"><figcaption>Wraith</figcaption></figure>
+<figure class="mob"><img src="img/enemy_magpie.png" alt="" loading="lazy" width="54" height="36"><figcaption>Thieving magpie</figcaption></figure>
+<figure class="mob"><img src="img/enemy_wolf.png" alt="" loading="lazy" width="70" height="52"><figcaption>Wolf</figcaption></figure>
+<figure class="mob"><img src="img/enemy_spider.png" alt="" loading="lazy" width="82" height="55"><figcaption>Giant Spider</figcaption></figure>
+<figure class="mob"><img src="img/enemy_worm.png" alt="" loading="lazy" width="74" height="48"><figcaption>Worm</figcaption></figure>
+<figure class="mob"><img src="img/enemy_puffball.png" alt="" loading="lazy" width="68" height="70"><figcaption>Puffball</figcaption></figure>
+<figure class="mob"><img src="img/enemy_boar.png" alt="" loading="lazy" width="56" height="43"><figcaption>Boar</figcaption></figure>
+<figure class="mob"><img src="img/enemy_wyvern.png" alt="" loading="lazy" width="72" height="47"><figcaption>Wyvern</figcaption></figure>
+<figure class="mob"><img src="img/enemy_fire_elemental.png" alt="" loading="lazy" width="84" height="130"><figcaption>Fire Elemental</figcaption></figure>
+<figure class="mob"><img src="img/enemy_grimoire.png" alt="" loading="lazy" width="114" height="64"><figcaption>Flying Grimoire</figcaption></figure>
+<figure class="mob"><img src="img/enemy_ice_elemental.png" alt="" loading="lazy" width="64" height="84"><figcaption>Ice Elemental</figcaption></figure>
+<figure class="mob"><img src="img/enemy_candle.png" alt="" loading="lazy" width="68" height="108"><figcaption>Witched candle</figcaption></figure>
+<figure class="mob"><img src="img/enemy_jelly.png" alt="" loading="lazy" width="100" height="84"><figcaption>Jelly</figcaption></figure>
+<figure class="mob"><img src="img/enemy_zombie.png" alt="" loading="lazy" width="60" height="140"><figcaption>Zombie</figcaption></figure>
+<figure class="mob"><img src="img/enemy_cockatrice.png" alt="" loading="lazy" width="52" height="47"><figcaption>Cockatrice</figcaption></figure>
+		</div>
+		<h3 class="sub-title">A guardian before every staircase</h3>
+		<p class="lead">Trolls, ettins, fire mages, kings of bone: every guardian has its phases, its combos and a ring of light on the floor that tells you where it's about to strike. Read it, dodge, strike back.</p>
+		<div class="guardians">
+<figure class="guardian"><img src="img/enemy_troll.png" alt="" loading="lazy" width="144" height="188"><figcaption>Troll</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_ettin.png" alt="" loading="lazy" width="168" height="198"><figcaption>Ettin</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_great_serpent.png" alt="" loading="lazy" width="64" height="100"><figcaption>The giant serpent</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_mage.png" alt="" loading="lazy" width="130" height="238"><figcaption>Fire Mage</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_bog_troll.png" alt="" loading="lazy" width="144" height="188"><figcaption>Bog Troll</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_crystal_golem.png" alt="" loading="lazy" width="152" height="206"><figcaption>Crystal Golem</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_genie.png" alt="" loading="lazy" width="66" height="106"><figcaption>The Genie of the Lamp</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_witch.png" alt="" loading="lazy" width="82" height="78"><figcaption>The witch</figcaption></figure>
+<figure class="guardian"><img src="img/enemy_skeleton_king.png" alt="" loading="lazy" width="104" height="208"><figcaption>Skeleton King</figcaption></figure>
+		</div>
+	</div>
+</section>
+
+<section class="section gifts" id="gifts" aria-labelledby="gifts-title">
+	<div class="wrap">
+		<h2 class="section-title" id="gifts-title">Gifts</h2>
+		<p class="lead">124 gifts, each with its own fairy tale and its own icon. Every gift that touches your bolt leaves its mark on it, and many show on the princess herself.</p>
+		<ul class="chips tiers"><li class="tier" style="--tier:#73d959">simple gifts</li><li class="tier" style="--tier:#669eff">medium gifts</li><li class="tier" style="--tier:#ffd640">major gifts</li></ul>
+	</div>
+	<div class="strips">
+<div class="strip"><ul class="strip-track"><li style="--tier:#ffd640"><img src="img/gift_witch_compass.png" alt="Witch's Compass" title="Witch's Compass" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_breadcrumbs.png" alt="Breadcrumbs" title="Breadcrumbs" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_hatpin.png" alt="Hatpin" title="Hatpin" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pebbles.png" alt="Tom Thumb's Pebbles" title="Tom Thumb's Pebbles" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_rose_petals.png" alt="Rose Petals" title="Rose Petals" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_golden_ball.png" alt="Golden Ball" title="Golden Ball" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_genie_lamp.png" alt="Genie's Lamp" title="Genie's Lamp" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_fairy_mirror.png" alt="Fairy Mirror" title="Fairy Mirror" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_enchanted_spindle.png" alt="Enchanted Spindle" title="Enchanted Spindle" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_wind_boots.png" alt="Wind Boots" title="Wind Boots" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_ravens.png" alt="The Seven Ravens" title="The Seven Ravens" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pied_flute.png" alt="Piper's Flute" title="Piper's Flute" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_mermaid_bubble.png" alt="Little Mermaid's Bubble" title="Little Mermaid's Bubble" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_nutcracker.png" alt="Nutcracker" title="Nutcracker" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_twin_bolt.png" alt="Twin Bolt" title="Twin Bolt" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_godmother_purse.png" alt="Fairy Godmother's Purse" title="Fairy Godmother's Purse" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_sun_crown.png" alt="Sun Crown" title="Sun Crown" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_frog.png" alt="Frog of the Well" title="Frog of the Well" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_ember.png" alt="Ember" title="Ember" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_fairy_hourglass.png" alt="Fairy's Hourglass" title="Fairy's Hourglass" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_dragon_heart.png" alt="Dragon Heart" title="Dragon Heart" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_golden_apple.png" alt="Golden Apple" title="Golden Apple" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_porridge.png" alt="Goldilocks' Porridge" title="Goldilocks' Porridge" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_tear_vial.png" alt="Vial of Tears" title="Vial of Tears" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_moon_diadem.png" alt="Moon Diadem" title="Moon Diadem" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_rumpel_thread.png" alt="Rumpelstiltskin's Thread" title="Rumpelstiltskin's Thread" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_owl_feather.png" alt="Owl Feather" title="Owl Feather" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_cricket.png" alt="Talking Cricket" title="Talking Cricket" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_unicorn_horn.png" alt="Unicorn Horn" title="Unicorn Horn" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_star_chalice.png" alt="Starry Chalice" title="Starry Chalice" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_golden_goose.png" alt="Golden Goose" title="Golden Goose" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_crystal_ball.png" alt="Crystal Ball" title="Crystal Ball" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_wax_candle.png" alt="Wax Candle" title="Wax Candle" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_grandma_lantern.png" alt="Grandmother's Lantern" title="Grandmother's Lantern" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_crystal_lens.png" alt="Crystal Lens" title="Crystal Lens" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pumpkin.png" alt="Cinderella's Pumpkin" title="Cinderella's Pumpkin" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_bolt_speed.png" alt="Tailwind" title="Tailwind" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_night_veil.png" alt="Veil of Night" title="Veil of Night" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_jack_bean.png" alt="Jack's Beanstalk" title="Jack's Beanstalk" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_nightingale.png" alt="Clockwork Nightingale" title="Clockwork Nightingale" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_blue_rose.png" alt="Blue Rose" title="Blue Rose" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_snowflake.png" alt="Snowflake" title="Snowflake" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_snow_queen.png" alt="Snow Queen's Heart" title="Snow Queen's Heart" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_glass_slippers.png" alt="Glass Slippers" title="Glass Slippers" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_moon_earrings.png" alt="Moon Earrings" title="Moon Earrings" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_rapunzel_braid.png" alt="Rapunzel's Braid" title="Rapunzel's Braid" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_hazelnuts.png" alt="Three Hazelnuts" title="Three Hazelnuts" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_puss_boots.png" alt="Puss in Boots" title="Puss in Boots" loading="lazy" width="72" height="72"></li></ul><ul class="strip-track" aria-hidden="true"><li style="--tier:#ffd640"><img src="img/gift_witch_compass.png" alt="" data-alt="Witch's Compass" title="Witch's Compass" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_breadcrumbs.png" alt="" data-alt="Breadcrumbs" title="Breadcrumbs" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_hatpin.png" alt="" data-alt="Hatpin" title="Hatpin" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pebbles.png" alt="" data-alt="Tom Thumb's Pebbles" title="Tom Thumb's Pebbles" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_rose_petals.png" alt="" data-alt="Rose Petals" title="Rose Petals" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_golden_ball.png" alt="" data-alt="Golden Ball" title="Golden Ball" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_genie_lamp.png" alt="" data-alt="Genie's Lamp" title="Genie's Lamp" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_fairy_mirror.png" alt="" data-alt="Fairy Mirror" title="Fairy Mirror" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_enchanted_spindle.png" alt="" data-alt="Enchanted Spindle" title="Enchanted Spindle" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_wind_boots.png" alt="" data-alt="Wind Boots" title="Wind Boots" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_ravens.png" alt="" data-alt="The Seven Ravens" title="The Seven Ravens" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pied_flute.png" alt="" data-alt="Piper's Flute" title="Piper's Flute" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_mermaid_bubble.png" alt="" data-alt="Little Mermaid's Bubble" title="Little Mermaid's Bubble" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_nutcracker.png" alt="" data-alt="Nutcracker" title="Nutcracker" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_twin_bolt.png" alt="" data-alt="Twin Bolt" title="Twin Bolt" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_godmother_purse.png" alt="" data-alt="Fairy Godmother's Purse" title="Fairy Godmother's Purse" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_sun_crown.png" alt="" data-alt="Sun Crown" title="Sun Crown" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_frog.png" alt="" data-alt="Frog of the Well" title="Frog of the Well" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_ember.png" alt="" data-alt="Ember" title="Ember" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_fairy_hourglass.png" alt="" data-alt="Fairy's Hourglass" title="Fairy's Hourglass" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_dragon_heart.png" alt="" data-alt="Dragon Heart" title="Dragon Heart" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_golden_apple.png" alt="" data-alt="Golden Apple" title="Golden Apple" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_porridge.png" alt="" data-alt="Goldilocks' Porridge" title="Goldilocks' Porridge" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_tear_vial.png" alt="" data-alt="Vial of Tears" title="Vial of Tears" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_moon_diadem.png" alt="" data-alt="Moon Diadem" title="Moon Diadem" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_rumpel_thread.png" alt="" data-alt="Rumpelstiltskin's Thread" title="Rumpelstiltskin's Thread" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_owl_feather.png" alt="" data-alt="Owl Feather" title="Owl Feather" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_cricket.png" alt="" data-alt="Talking Cricket" title="Talking Cricket" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_unicorn_horn.png" alt="" data-alt="Unicorn Horn" title="Unicorn Horn" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_star_chalice.png" alt="" data-alt="Starry Chalice" title="Starry Chalice" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_golden_goose.png" alt="" data-alt="Golden Goose" title="Golden Goose" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_crystal_ball.png" alt="" data-alt="Crystal Ball" title="Crystal Ball" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_wax_candle.png" alt="" data-alt="Wax Candle" title="Wax Candle" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_grandma_lantern.png" alt="" data-alt="Grandmother's Lantern" title="Grandmother's Lantern" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_crystal_lens.png" alt="" data-alt="Crystal Lens" title="Crystal Lens" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pumpkin.png" alt="" data-alt="Cinderella's Pumpkin" title="Cinderella's Pumpkin" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_bolt_speed.png" alt="" data-alt="Tailwind" title="Tailwind" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_night_veil.png" alt="" data-alt="Veil of Night" title="Veil of Night" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_jack_bean.png" alt="" data-alt="Jack's Beanstalk" title="Jack's Beanstalk" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_nightingale.png" alt="" data-alt="Clockwork Nightingale" title="Clockwork Nightingale" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_blue_rose.png" alt="" data-alt="Blue Rose" title="Blue Rose" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_snowflake.png" alt="" data-alt="Snowflake" title="Snowflake" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_snow_queen.png" alt="" data-alt="Snow Queen's Heart" title="Snow Queen's Heart" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_glass_slippers.png" alt="" data-alt="Glass Slippers" title="Glass Slippers" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_moon_earrings.png" alt="" data-alt="Moon Earrings" title="Moon Earrings" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_rapunzel_braid.png" alt="" data-alt="Rapunzel's Braid" title="Rapunzel's Braid" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_hazelnuts.png" alt="" data-alt="Three Hazelnuts" title="Three Hazelnuts" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_puss_boots.png" alt="" data-alt="Puss in Boots" title="Puss in Boots" loading="lazy" width="72" height="72"></li></ul></div>
+<div class="strip"><ul class="strip-track"><li style="--tier:#ffd640"><img src="img/gift_pet_goose.png" alt="The Golden Goose" title="The Golden Goose" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_beast_rose.png" alt="Beast's Rose" title="Beast's Rose" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_swan_feather.png" alt="Swan Feather" title="Swan Feather" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_star_cloak.png" alt="Starry Cloak" title="Starry Cloak" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_rose_thorns.png" alt="Thorned Rose" title="Thorned Rose" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_doves.png" alt="Cinderella's Doves" title="Cinderella's Doves" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_envy_mirror.png" alt="Mirror of Desire" title="Mirror of Desire" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_briar_rose.png" alt="Sleeping Beauty's Briar" title="Sleeping Beauty's Briar" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_red_shoes.png" alt="Red Shoes" title="Red Shoes" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_frog_ring.png" alt="Frog Prince's Ring" title="Frog Prince's Ring" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_dawn_comb.png" alt="Dawn Comb" title="Dawn Comb" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_silver_bell.png" alt="Silver Bell" title="Silver Bell" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_coral_comb.png" alt="Coral Comb" title="Coral Comb" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_hunter_bow.png" alt="Huntsman's Bow" title="Huntsman's Bow" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_midnight_ring.png" alt="Midnight Ring" title="Midnight Ring" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_tailor_belt.png" alt="Brave Little Tailor's Belt" title="Brave Little Tailor's Belt" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_spyglass.png" alt="Spyglass" title="Spyglass" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_halo.png" alt="Halo" title="Halo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_fire_bolt.png" alt="Fire Bolt" title="Fire Bolt" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_dew_vial.png" alt="Dew Flask" title="Dew Flask" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_silver_needle.png" alt="Silver Needle" title="Silver Needle" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_bremen_drum.png" alt="Bremen Town Musicians' Drum" title="Bremen Town Musicians' Drum" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_queen_scepter.png" alt="Queen's Scepter" title="Queen's Scepter" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_league_boots.png" alt="Little Muck's Slippers" title="Little Muck's Slippers" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_magic_bean.png" alt="Magic Bean" title="Magic Bean" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_golden_harp.png" alt="Golden Harp" title="Golden Harp" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_phoenix_feather.png" alt="Phoenix Feather" title="Phoenix Feather" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_hunter_knife.png" alt="Huntsman's Dagger" title="Huntsman's Dagger" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_dragon_teeth.png" alt="Dragon's Teeth" title="Dragon's Teeth" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_bluebeard_key.png" alt="Bluebeard's Lockpick" title="Bluebeard's Lockpick" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_dandelion.png" alt="Dandelion" title="Dandelion" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_horseshoe.png" alt="Horseshoe" title="Horseshoe" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_silver_thimble.png" alt="Silver Thimble" title="Silver Thimble" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_sea_trident.png" alt="Sea King's Trident" title="Sea King's Trident" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_pearl_string.png" alt="String of Pearls" title="String of Pearls" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_fairy_dust.png" alt="Fairy Dust" title="Fairy Dust" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pitch_heart.png" alt="Heart of Pitch" title="Heart of Pitch" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_yarn.png" alt="Ball of Yarn" title="Ball of Yarn" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_witch_shadow.png" alt="Witch's Shadow" title="Witch's Shadow" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_falling_star.png" alt="Shooting Star" title="Shooting Star" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_clover.png" alt="Four-Leaf Clover" title="Four-Leaf Clover" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_rune_ring.png" alt="Rune Ring" title="Rune Ring" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_fairy_cloak.png" alt="Fairy Cloak" title="Fairy Cloak" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_cat.png" alt="Cat of the Marquis of Carabas" title="Cat of the Marquis of Carabas" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_spinning_wheel.png" alt="Golden Spinning Wheel" title="Golden Spinning Wheel" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pea.png" alt="Pea Under the Mattress" title="Pea Under the Mattress" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_firefly_jar.png" alt="Jar of Fireflies" title="Jar of Fireflies" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_lion_heart.png" alt="Lionheart" title="Lionheart" loading="lazy" width="72" height="72"></li></ul><ul class="strip-track" aria-hidden="true"><li style="--tier:#ffd640"><img src="img/gift_pet_goose.png" alt="" data-alt="The Golden Goose" title="The Golden Goose" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_beast_rose.png" alt="" data-alt="Beast's Rose" title="Beast's Rose" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_swan_feather.png" alt="" data-alt="Swan Feather" title="Swan Feather" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_star_cloak.png" alt="" data-alt="Starry Cloak" title="Starry Cloak" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_rose_thorns.png" alt="" data-alt="Thorned Rose" title="Thorned Rose" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_doves.png" alt="" data-alt="Cinderella's Doves" title="Cinderella's Doves" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_envy_mirror.png" alt="" data-alt="Mirror of Desire" title="Mirror of Desire" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_briar_rose.png" alt="" data-alt="Sleeping Beauty's Briar" title="Sleeping Beauty's Briar" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_red_shoes.png" alt="" data-alt="Red Shoes" title="Red Shoes" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_frog_ring.png" alt="" data-alt="Frog Prince's Ring" title="Frog Prince's Ring" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_dawn_comb.png" alt="" data-alt="Dawn Comb" title="Dawn Comb" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_silver_bell.png" alt="" data-alt="Silver Bell" title="Silver Bell" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_coral_comb.png" alt="" data-alt="Coral Comb" title="Coral Comb" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_hunter_bow.png" alt="" data-alt="Huntsman's Bow" title="Huntsman's Bow" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_midnight_ring.png" alt="" data-alt="Midnight Ring" title="Midnight Ring" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_tailor_belt.png" alt="" data-alt="Brave Little Tailor's Belt" title="Brave Little Tailor's Belt" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_spyglass.png" alt="" data-alt="Spyglass" title="Spyglass" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_halo.png" alt="" data-alt="Halo" title="Halo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_fire_bolt.png" alt="" data-alt="Fire Bolt" title="Fire Bolt" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_dew_vial.png" alt="" data-alt="Dew Flask" title="Dew Flask" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_silver_needle.png" alt="" data-alt="Silver Needle" title="Silver Needle" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_bremen_drum.png" alt="" data-alt="Bremen Town Musicians' Drum" title="Bremen Town Musicians' Drum" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_queen_scepter.png" alt="" data-alt="Queen's Scepter" title="Queen's Scepter" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_league_boots.png" alt="" data-alt="Little Muck's Slippers" title="Little Muck's Slippers" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_magic_bean.png" alt="" data-alt="Magic Bean" title="Magic Bean" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_golden_harp.png" alt="" data-alt="Golden Harp" title="Golden Harp" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_phoenix_feather.png" alt="" data-alt="Phoenix Feather" title="Phoenix Feather" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_hunter_knife.png" alt="" data-alt="Huntsman's Dagger" title="Huntsman's Dagger" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_dragon_teeth.png" alt="" data-alt="Dragon's Teeth" title="Dragon's Teeth" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_bluebeard_key.png" alt="" data-alt="Bluebeard's Lockpick" title="Bluebeard's Lockpick" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_dandelion.png" alt="" data-alt="Dandelion" title="Dandelion" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_horseshoe.png" alt="" data-alt="Horseshoe" title="Horseshoe" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_silver_thimble.png" alt="" data-alt="Silver Thimble" title="Silver Thimble" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_sea_trident.png" alt="" data-alt="Sea King's Trident" title="Sea King's Trident" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_pearl_string.png" alt="" data-alt="String of Pearls" title="String of Pearls" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_fairy_dust.png" alt="" data-alt="Fairy Dust" title="Fairy Dust" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pitch_heart.png" alt="" data-alt="Heart of Pitch" title="Heart of Pitch" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_yarn.png" alt="" data-alt="Ball of Yarn" title="Ball of Yarn" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_witch_shadow.png" alt="" data-alt="Witch's Shadow" title="Witch's Shadow" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_falling_star.png" alt="" data-alt="Shooting Star" title="Shooting Star" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_clover.png" alt="" data-alt="Four-Leaf Clover" title="Four-Leaf Clover" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_rune_ring.png" alt="" data-alt="Rune Ring" title="Rune Ring" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_fairy_cloak.png" alt="" data-alt="Fairy Cloak" title="Fairy Cloak" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_pet_cat.png" alt="" data-alt="Cat of the Marquis of Carabas" title="Cat of the Marquis of Carabas" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="img/gift_spinning_wheel.png" alt="" data-alt="Golden Spinning Wheel" title="Golden Spinning Wheel" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_pea.png" alt="" data-alt="Pea Under the Mattress" title="Pea Under the Mattress" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="img/gift_firefly_jar.png" alt="" data-alt="Jar of Fireflies" title="Jar of Fireflies" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="img/gift_lion_heart.png" alt="" data-alt="Lionheart" title="Lionheart" loading="lazy" width="72" height="72"></li></ul></div>
+	</div>
+	<div class="wrap"><p class="gifts-more">And further down, gifts best left unnamed.</p></div>
+</section>
+
+<section class="section tower" id="tower" aria-labelledby="tower-title">
+	<div class="wrap">
+		<h2 class="section-title" id="tower-title">Between descents</h2>
+		<p class="lead">Every descent ends back in the tower, and the tower remembers.</p>
+		<div class="cards cards-3">
+			<article class="card reveal"><img class="icon" src="img/icon_promise.png" alt="" width="72" height="72"><h3>Promises and keepsakes</h3><p>Knights and monsters leave promises behind. Back in the tower you write them on your little board, and they become keepsakes: things for your room that help you on the next descent.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_spell.png" alt="" width="72" height="72"><h3>Spells</h3><p>Instead of a jump you have a spell: the blink, to begin with. The other 6 are learned by following the fairy tales, going down and studying in the tower.</p></article>
+			<article class="card reveal"><img class="icon" src="img/icon_book.png" alt="" width="72" height="60"><h3>Tomorrow's tale</h3><p>The princess's diary lies on the lectern. Write a page of tomorrow's tale, and the floor you're about to go down to will turn out the way it says.</p></article>
+		</div>
+	</div>
+</section>
+
+<section class="section screens" id="screens" aria-labelledby="screens-title">
+	<div class="wrap">
+		<h2 class="section-title" id="screens-title">From the castle</h2>
+		<p class="lead">Screenshots from version 0.12.1, with the real interface (in Italian).</p>
+		<div class="gallery">
+<figure class="shot wide"><a href="media/shots/01_reliquie.webp"><img src="media/shots/01_reliquie_small.webp" alt="Before going down: pick one gift from the altars." width="640" height="360" loading="lazy"></a><figcaption>Before going down: pick one gift from the altars.</figcaption></figure>
+<figure class="shot wide"><a href="media/shots/03_cavaliere.webp"><img src="media/shots/03_cavaliere_small.webp" alt="A slumped knight: he came to rescue you." width="640" height="360" loading="lazy"></a><figcaption>A slumped knight: he came to rescue you.</figcaption></figure>
+<figure class="shot"><a href="media/shots/04_troll.webp"><img src="media/shots/04_troll_small.webp" alt="The cave troll, against a frost bolt." width="640" height="360" loading="lazy"></a><figcaption>The cave troll, against a frost bolt.</figcaption></figure>
+<figure class="shot"><a href="media/shots/06_re_scheletro.webp"><img src="media/shots/06_re_scheletro_small.webp" alt="The Skeleton King, in the prison cells." width="640" height="360" loading="lazy"></a><figcaption>The Skeleton King, in the prison cells.</figcaption></figure>
+<figure class="shot"><a href="media/shots/08_negozio.webp"><img src="media/shots/08_negozio_small.webp" alt="The shop: everything costs promises." width="640" height="360" loading="lazy"></a><figcaption>The shop: everything costs promises.</figcaption></figure>
+<figure class="shot wide"><a href="media/shots/09_golem.webp"><img src="media/shots/09_golem_small.webp" alt="The crystal golem, in the wizard's tower." width="640" height="360" loading="lazy"></a><figcaption>The crystal golem, in the wizard's tower.</figcaption></figure>
+<figure class="shot wide"><a href="media/shots/10_erborista.webp"><img src="media/shots/10_erborista_small.webp" alt="The herbalist's room, with its great cauldron." width="640" height="360" loading="lazy"></a><figcaption>The herbalist's room, with its great cauldron.</figcaption></figure>
+		</div>
+	</div>
+</section>
+
+<section class="section download" id="download" aria-labelledby="download-title">
+	<div class="wrap">
+		<div class="download-box frame">
+			<div class="download-art" aria-hidden="true"><img class="princess" src="img/princess.png" alt="" width="204" height="472"></div>
+			<div class="download-copy">
+				<h2 class="section-title" id="download-title">Download Runess</h2>
+				<p>Free, for Windows and Linux. It's a prototype and it keeps growing: the game tells you when a new version is out.</p>
+				<a class="btn btn-gold btn-big" href="https://yanez86.itch.io/runess" rel="noopener">
+					<span class="arrow-down" aria-hidden="true"></span>
+					<span><strong>Download on itch.io</strong><small>Windows · Linux · free</small></span>
+				</a>
+				<p class="download-version">Version 0.12.1, released 17 October 2026</p>
+				<p class="muted">You'll need Windows 10 or 11, or 64-bit Linux, and a graphics card that supports Vulkan or Direct3D 12. Play with mouse and keyboard or with a controller. In English and Italian.</p>
+				<p class="warning">Runess is a fairy tale, but not one for children: it deals with themes some players may find upsetting.</p>
+				<ul class="download-links">
+					<li><a href="changelog.html">What's new in every version →</a></li>
+					<li><a href="https://yanez86.github.io/runess-wiki/" rel="noopener">The wiki, for those who want to know everything (in Italian, with spoilers) ↗</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+</main>
+
+<footer class="footer">
+	<div class="wrap footer-in">
+		<p><img src="img/icon.png" alt="" width="24" height="24"> Made with Godot by HAPPY SQUID INC.</p>
+		<p class="muted">This site is built from the game's own code, version 0.12.1: names, numbers and pictures are the real ones.</p>
+		<p class="muted">Fonts: Jacquard 24 and Pixelify Sans (SIL Open Font License).</p>
+	</div>
+</footer>
+
+<dialog class="lightbox" id="lightbox">
+	<figure><img alt=""><figcaption></figcaption></figure>
+	<button class="lb-close" type="button" aria-label="Close">×</button>
+	<button class="lb-prev" type="button" aria-label="Previous image">‹</button>
+	<button class="lb-next" type="button" aria-label="Next image">›</button>
+</dialog>
+
+<script src="splash.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

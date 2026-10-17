@@ -1,0 +1,175 @@
+// Il sito di Runess (tools/site/game_site.gd): il menu sul telefono, la lingua scelta, le sezioni che compaiono
+// scorrendo, gli screenshot ingranditi, il trailer, e nella pagina delle novità la ricerca e l'indice delle versioni.
+// Senza librerie; tutto funziona anche senza, solo più fermo.
+(function () {
+	"use strict";
+	var doc = document;
+	var list = function (selector, from) { return Array.prototype.slice.call((from || doc).querySelectorAll(selector)); };
+
+	// Il menu sul telefono
+	var toggle = doc.querySelector(".menu-toggle");
+	var nav = doc.getElementById("nav");
+	if (toggle && nav) {
+		var setOpen = function (open) {
+			nav.classList.toggle("open", open);
+			toggle.setAttribute("aria-expanded", open ? "true" : "false");
+		};
+		toggle.addEventListener("click", function () { setOpen(!nav.classList.contains("open")); });
+		nav.addEventListener("click", function (e) { if (e.target.closest("a")) setOpen(false); });
+		doc.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
+	}
+
+	// La lingua scelta a mano resta: la pagina inglese non riporta più a quella italiana
+	list("a[data-lang]").forEach(function (a) {
+		a.addEventListener("click", function () {
+			try { localStorage.setItem("runess-lang", a.getAttribute("data-lang")); } catch (e) {}
+		});
+	});
+
+	// Le sezioni che compaiono scorrendo
+	var reveals = list(".reveal");
+	if ("IntersectionObserver" in window) {
+		var shown = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				if (!entry.isIntersecting) return;
+				entry.target.classList.add("in");
+				shown.unobserve(entry.target);
+			});
+		}, { rootMargin: "0px 0px -6% 0px" });
+		reveals.forEach(function (el) { shown.observe(el); });
+	} else {
+		reveals.forEach(function (el) { el.classList.add("in"); });
+	}
+
+	// «Guarda il trailer»: scende al video e lo fa partire
+	var video = doc.querySelector("#trailer video");
+	list("a[href='#trailer']").forEach(function (a) {
+		a.addEventListener("click", function () {
+			if (!video) return;
+			setTimeout(function () { var p = video.play(); if (p && p.catch) p.catch(function () {}); }, 450);
+		});
+	});
+
+	// Gli screenshot ingranditi, con le frecce, la tastiera e lo strisciare del dito
+	var box = doc.getElementById("lightbox");
+	var shots = list(".shot a");
+	if (box && shots.length && box.showModal) {
+		var img = box.querySelector("img");
+		var caption = box.querySelector("figcaption");
+		var index = 0;
+		var show = function (i) {
+			index = (i + shots.length) % shots.length;
+			var link = shots[index];
+			img.src = link.href;
+			img.alt = link.querySelector("img").alt;
+			caption.textContent = link.parentNode.querySelector("figcaption").textContent;
+		};
+		shots.forEach(function (link, i) {
+			link.addEventListener("click", function (e) {
+				e.preventDefault();
+				show(i);
+				box.showModal();
+			});
+		});
+		box.querySelector(".lb-close").addEventListener("click", function () { box.close(); });
+		box.querySelector(".lb-prev").addEventListener("click", function () { show(index - 1); });
+		box.querySelector(".lb-next").addEventListener("click", function () { show(index + 1); });
+		box.addEventListener("click", function (e) { if (e.target === box || e.target.tagName === "FIGURE") box.close(); });
+		box.addEventListener("keydown", function (e) {
+			if (e.key === "ArrowLeft") show(index - 1);
+			else if (e.key === "ArrowRight") show(index + 1);
+		});
+		var touchX = null;
+		box.addEventListener("touchstart", function (e) { touchX = e.touches[0].clientX; }, { passive: true });
+		box.addEventListener("touchend", function (e) {
+			if (touchX === null) return;
+			var dx = e.changedTouches[0].clientX - touchX;
+			if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+			touchX = null;
+		});
+	}
+
+	// Le novità: ricerca, apri e chiudi tutte, l'indice che segue la versione che leggi
+	var releases = list(".release");
+	if (releases.length) {
+		var filter = doc.getElementById("cl-filter");
+		var none = doc.querySelector(".cl-none");
+		var links = {};
+		list(".cl-index a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+		var plain = function (s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); };
+		var startOpen = releases.map(function (r) { return r.open; });
+		var items = releases.map(function (r) {
+			return {
+				el: r,
+				head: plain(r.querySelector("summary").textContent),
+				notes: list(".rel-notes li", r).map(function (li) { return { el: li, text: plain(li.textContent) }; })
+			};
+		});
+		var applyFilter = function () {
+			var words = plain(filter.value.trim()).split(/\s+/).filter(Boolean);
+			var any = false;
+			items.forEach(function (item, i) {
+				var matches = 0;
+				item.notes.forEach(function (note) {
+					var ok = words.every(function (w) { return note.text.indexOf(w) >= 0 || item.head.indexOf(w) >= 0; });
+					note.el.classList.toggle("hidden", !ok);
+					if (ok) matches++;
+				});
+				var hide = words.length > 0 && matches === 0;
+				item.el.classList.toggle("hidden", hide);
+				var link = links[item.el.id];
+				if (link) link.parentNode.classList.toggle("hidden", hide);
+				item.el.open = words.length ? !hide : startOpen[i];
+				if (!hide) any = true;
+			});
+			none.hidden = any;
+		};
+		if (filter) filter.addEventListener("input", applyFilter);
+		var setAll = function (open) { releases.forEach(function (r) { if (!r.classList.contains("hidden")) r.open = open; }); };
+		var expand = doc.getElementById("cl-expand");
+		var collapse = doc.getElementById("cl-collapse");
+		if (expand) expand.addEventListener("click", function () { setAll(true); });
+		if (collapse) collapse.addEventListener("click", function () { setAll(false); });
+
+		// una versione dall'indirizzo (#v0-12-1) o dall'indice si apre
+		var openTarget = function () {
+			var target = location.hash && doc.getElementById(location.hash.slice(1));
+			if (target && target.tagName === "DETAILS") target.open = true;
+		};
+		window.addEventListener("hashchange", openTarget);
+		openTarget();
+
+		var current = null;
+		var keepVisible = function (link) {
+			var ol = link.closest("ol");
+			var aside = link.closest(".cl-index");
+			if (getComputedStyle(ol).display === "flex") {
+				ol.scrollTo({ left: link.parentNode.offsetLeft - ol.offsetLeft - ol.clientWidth / 2 + link.clientWidth / 2 });
+			} else if (aside.scrollHeight > aside.clientHeight) {
+				aside.scrollTo({ top: link.parentNode.offsetTop - aside.clientHeight / 2 });
+			}
+		};
+		var mark = function (id) {
+			var link = links[id];
+			if (!link || link === current) return;
+			if (current) current.classList.remove("current");
+			link.classList.add("current");
+			current = link;
+			keepVisible(link);
+		};
+		if ("IntersectionObserver" in window) {
+			var spy = new IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) { if (entry.isIntersecting) mark(entry.target.id); });
+			}, { rootMargin: "-90px 0px -65% 0px" });
+			releases.forEach(function (r) { spy.observe(r); });
+		}
+	}
+
+	// «Torna su»
+	var up = doc.querySelector(".to-top");
+	if (up) {
+		var onScroll = function () { up.classList.toggle("show", window.scrollY > 700); };
+		window.addEventListener("scroll", onScroll, { passive: true });
+		onScroll();
+	}
+})();

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="it" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runess — la principessa che si salva da sola</title>
+<meta name="description" content="Sparatutto in prima persona a piani procedurali, in voxel: una principessa stanca di aspettare il cavaliere scende da sola il castello, armata di un dardo incantato. Gratis per Windows e Linux.">
+<link rel="canonical" href="https://yanez86.github.io/runess-site/it/">
+<link rel="alternate" hreflang="en" href="https://yanez86.github.io/runess-site/">
+<link rel="alternate" hreflang="it" href="https://yanez86.github.io/runess-site/it/">
+<link rel="alternate" hreflang="x-default" href="https://yanez86.github.io/runess-site/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Runess">
+<meta property="og:title" content="Runess — la principessa che si salva da sola">
+<meta property="og:description" content="Sparatutto in prima persona a piani procedurali, in voxel: una principessa stanca di aspettare il cavaliere scende da sola il castello, armata di un dardo incantato. Gratis per Windows e Linux.">
+<meta property="og:url" content="https://yanez86.github.io/runess-site/it/">
+<meta property="og:image" content="https://yanez86.github.io/runess-site/media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0806">
+<link rel="icon" href="../img/icon.png">
+<link rel="preload" href="../fonts/Jacquard24-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../fonts/PixelifySans.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<script>
+// Prima di disegnare la pagina: c'è JavaScript; lo splash solo la prima volta in una sessione, e mai a chi chiede
+// meno movimento.
+(function () {
+	var root = document.documentElement;
+	root.classList.remove("no-js");
+	root.classList.add("js");
+	try {
+		var seen = sessionStorage.getItem("runess-splash");
+		var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		if (!seen && !calm && !/[?&]nosplash/.test(location.search)) root.classList.add("splash-on");
+	} catch (e) {}
+})();
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<div class="splash" id="splash" aria-hidden="true">
+	<canvas class="splash-canvas"></canvas>
+	<div class="splash-text">
+		<p class="splash-tagline">La principessa che si salva da sola</p>
+		<p class="splash-hint">Clicca o premi un tasto</p>
+	</div>
+</div>
+
+<header class="topbar" id="top">
+	<div class="wrap topbar-in">
+		<a class="brand" href="#top" aria-label="Runess, la pagina principale"><img src="../img/icon.png" alt="" width="32" height="32"><span>Runess</span></a>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><span></span></button>
+		<nav class="nav" id="nav">
+			<a href="#story">La storia</a>
+			<a href="#play">Come si gioca</a>
+			<a href="#world">Il castello</a>
+			<a href="#bestiary">Bestiario</a>
+			<a href="#gifts">Doni</a>
+			<a href="#screens">Immagini</a>
+			<a href="changelog.html">Novità</a>
+			<a class="lang" href="../" hreflang="en" lang="en" data-lang="en" title="Read this page in English">English</a>
+			<a class="btn btn-gold btn-small" href="#download">Scarica</a>
+		</nav>
+	</div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+	<div class="hero-bg" aria-hidden="true"><img src="../media/hero.webp" alt="" width="1600" height="836"></div>
+	<div class="wrap hero-in">
+		<div class="hero-copy">
+			<p class="kicker">C'era una volta una principessa…</p>
+			<h1 class="title" id="hero-title">Runess</h1>
+			<p class="tagline">…che si salvò da sola.</p>
+			<p class="pitch">Stanca di aspettare il cavaliere che la salvi, la principessa esce da sola dalla torre e scende il castello piano dopo piano, con un solo incantesimo: il dardo incantato. Ogni discesa è diversa, ogni stanza è una prova, e prima di ogni scala c'è un guardiano.</p>
+			<div class="cta">
+				<a class="btn btn-gold btn-big" href="https://yanez86.itch.io/runess" rel="noopener">
+					<span class="arrow-down" aria-hidden="true"></span>
+					<span><strong>Scarica gratis</strong><small>Windows e Linux, su itch.io</small></span>
+				</a>
+				<a class="btn btn-big" href="#trailer">
+					<span class="play-icon" aria-hidden="true"></span>
+					<span><strong>Guarda il trailer</strong><small>0:30</small></span>
+				</a>
+			</div>
+			<p class="hero-meta"><span class="badge">Versione 0.12.1 · 17 ottobre 2026</span><span>Prototipo in sviluppo, aggiornato spesso</span></p>
+		</div>
+		<div class="hero-princess" aria-hidden="true"><img class="princess" src="../img/princess.png" alt="" width="204" height="472"><span class="hero-glow"></span></div>
+	</div>
+</section>
+
+<section class="section trailer" id="trailer" aria-labelledby="trailer-title">
+	<div class="wrap">
+		<h2 class="section-title" id="trailer-title">Il trailer</h2>
+		<div class="frame video">
+			<video controls preload="none" playsinline width="1280" height="720" poster="../media/trailer_poster_it.webp">
+				<source src="../media/trailer_it.mp4" type="video/mp4">
+				<a href="../media/trailer_it.mp4">Il tuo browser non riproduce il video: scaricalo.</a>
+			</video>
+		</div>
+	</div>
+</section>
+
+<section class="section story" id="story" aria-labelledby="story-title">
+	<div class="wrap story-in">
+		<div class="story-text reveal">
+			<h2 class="section-title" id="story-title">La storia</h2>
+			<p class="dropcap">In cima alla torre più alta del castello una principessa aspetta il cavaliere che la salvi, come nelle fiabe. Aspetta tanto. I cavalieri partono, ma nessuno arriva fin lassù.</p>
+			<p>Un mattino decide che basta. Spinge il portone e comincia a scendere, piano dopo piano, con un solo incantesimo in mano: il dardo incantato. I cavalieri li ritroverà lungo la strada, accasciati contro i muri, con le loro promesse.</p>
+			<p class="story-end">Nessuno verrà a salvarla. Si salva da sola.</p>
+		</div>
+	</div>
+</section>
+
+<section class="section play" id="play" aria-labelledby="play-title">
+	<div class="wrap">
+		<h2 class="section-title" id="play-title">Come si gioca</h2>
+		<p class="lead">Un FPS d'azione in voxel, a piani procedurali, col cuore di un roguelite: scendi, raccogli doni, cadi, e ricominci più forte.</p>
+		<div class="cards">
+			<article class="card reveal"><img class="icon" src="../img/icon_heart.png" alt="" width="72" height="64"><h3>Si salva da sola</h3><p>Azione in prima persona, veloce. Niente spada né armatura: solo il dardo incantato, una piccola cometa che si carica, rimbalza, brucia, gela e addormenta, secondo i doni che porti.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_skull.png" alt="" width="72" height="64"><h3>Ogni stanza è una prova</h3><p>Entri, le porte si chiudono e i nemici escono dal fumo, a ondate. Si riaprono solo quando cade l'ultimo. Spuntoni, feritoie, specchi stregati: attenta a dove metti i piedi.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_gift.png" alt="" width="72" height="72"><h3>Doni con un prezzo</h3><p>124 doni da raccogliere: cambiano il dardo, il passo, i <img class="heart" src="../img/heart.png" alt="♥">. Alcuni danno molto e tolgono qualcosa. Scegli bene cosa portarti giù.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_potion.png" alt="" width="72" height="72"><h3>Una mano e una tasca</h3><p>Niente inventario: un oggetto in mano, una cianfrusaglia in tasca, i tuoi <img class="heart" src="../img/heart.png" alt="♥"> e il mana. Il resto lo porti addosso, e si vede.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_die.png" alt="" width="72" height="72"><h3>Ogni discesa è nuova</h3><p>Stanze, corridoi, nemici e tesori nascono dal seed della partita: ogni discesa è un castello diverso, e lo stesso seed rifà lo stesso castello.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_key.png" alt="" width="72" height="72"><h3>Un castello pieno di segreti</h3><p>Muri a cui bussare, stanze dorate chiuse a chiave, porte che non dovrebbero esserci. E una storia che si scopre solo scendendo.</p></article>
+		</div>
+		<div class="rooms frame reveal">
+			<div>
+				<h3>Stanze che non ti aspetti</h3>
+				<p>Fra un'arena e l'altra il castello ha i suoi incontri: il negozio, dove tutto si paga in promesse, la fontana che cura, il cavaliere accasciato, e stanze che si fanno trovare quando vogliono loro.</p>
+				<ul class="chips"><li>il pozzo del ranocchio</li><li>la fata madrina</li><li>la casetta di marzapane</li><li>i cristalli che cantano</li><li>l'uccello d'oro</li><li>il cavaliere in catene</li><li>il forziere maledetto</li><li>il gufo sapiente</li><li>la sala della sfida</li><li>il calderone dell'erborista</li></ul>
+			</div>
+			<div>
+				<h3>E nei corridoi</h3>
+				<ul class="chips"><li>teste di drago</li><li>pendoli</li><li>botole</li><li>rovi</li><li>gabbie</li><li>bocchette che soffiano via il mana</li><li>spuntoni</li><li>feritoie</li><li>lastre che crollano</li><li>specchi stregati</li></ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section world" id="world" aria-labelledby="world-title">
+	<div class="wrap">
+		<h2 class="section-title" id="world-title">Il castello</h2>
+		<p class="lead">Sotto la torre il castello cambia faccia a ogni discesa: ogni piano ha il suo ambiente, coi suoi mostri, le sue luci e i suoi guardiani.</p>
+		<div class="biomes">
+<article class="biome" style="--fog:#1f1c24"><div class="biome-art"><img src="../img/room_dungeon.png" alt="I sotterranei" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>I sotterranei</h3><p>Pietra e terra battuta, catene e stendardi, ossa negli angoli: il castello com'era una volta, sotto.</p><p class="biome-mobs"><span>Ci vivono:</span> Goblin, Scheletro arciere, Ratto gigante, Ghoul</p></div></article>
+<article class="biome" style="--fog:#291f1a"><div class="biome-art"><img src="../img/room_noble.png" alt="Le stanze nobiliari" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>Le stanze nobiliari</h3><p>Parquet, marmo a scacchi, tappezzerie rosse e ritratti che ti guardano passare. Più luce, ma non meno pericoli.</p><p class="biome-mobs"><span>Ci vivono:</span> Goblin, Scheletro guerriero, Pollo volante, Spettro</p></div></article>
+<article class="biome" style="--fog:#0f171a"><div class="biome-art"><img src="../img/room_caves.png" alt="Le caverne" loading="lazy" width="428" height="310"></div><div class="biome-body"><h3>Le caverne</h3><p>Roccia grezza e stalattiti, pozze d'acqua, cristalli e funghetti che fanno luce verde. Niente finestre: solo lanterne posate a terra.</p><p class="biome-mobs"><span>Ci vivono:</span> Lupo, Ragno gigante, Ratto gigante, Verme</p></div></article>
+<article class="biome" style="--fog:#1a122b"><div class="biome-art"><img src="../img/room_tower.png" alt="La torre del mago" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>La torre del mago</h3><p>Volta blu con le stelle, cerchi di rune che brillano, librerie, alambicchi e sfere di cristallo: qui le stanze fanno magie da sole.</p><p class="biome-mobs"><span>Ci vivono:</span> Elementale del fuoco, Grimorio volante, Elementale del ghiaccio, Spettro</p></div></article>
+<article class="biome" style="--fog:#141c17"><div class="biome-art"><img src="../img/room_prison.png" alt="Le segrete del castello" loading="lazy" width="436" height="312"></div><div class="biome-body"><h3>Le segrete del castello</h3><p>Acciottolato bagnato, celle con le sbarre, catene e paglia marcia. Buie, e senza finestre.</p><p class="biome-mobs"><span>Ci vivono:</span> Scheletro guerriero, Zombie, Scheletro arciere, Ratto gigante</p></div></article>
+			<article class="biome biome-more">
+				<div class="biome-art"><span aria-hidden="true">?</span></div>
+				<div class="biome-body"><h3>E più giù?</h3><p>Il castello scende più in basso di così. Quello che c'è, lo scopri scendendo.</p></div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<section class="section bestiary" id="bestiary" aria-labelledby="bestiary-title">
+	<div class="wrap">
+		<h2 class="section-title" id="bestiary-title">Il bestiario</h2>
+		<p class="lead">Mostri delle fiabe fatti di voxel, a pezzi e animati, ognuno col suo modo di muoversi e di colpire. Nel gioco sono 53: questi sono i primi che incontrerai.</p>
+		<div class="mobs">
+<figure class="mob"><img src="../img/enemy_goblin.png" alt="" loading="lazy" width="76" height="100"><figcaption>Goblin</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_skeleton.png" alt="" loading="lazy" width="72" height="146"><figcaption>Scheletro arciere</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_rat.png" alt="" loading="lazy" width="70" height="38"><figcaption>Ratto gigante</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_ghoul.png" alt="" loading="lazy" width="62" height="57"><figcaption>Ghoul</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_bomber.png" alt="" loading="lazy" width="84" height="112"><figcaption>Goblin bombarolo</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_skeleton_warrior.png" alt="" loading="lazy" width="68" height="148"><figcaption>Scheletro guerriero</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_chicken.png" alt="" loading="lazy" width="56" height="45"><figcaption>Pollo volante</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_ghost.png" alt="" loading="lazy" width="72" height="90"><figcaption>Spettro</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_magpie.png" alt="" loading="lazy" width="54" height="36"><figcaption>Gazza ladra</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_wolf.png" alt="" loading="lazy" width="70" height="52"><figcaption>Lupo</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_spider.png" alt="" loading="lazy" width="82" height="55"><figcaption>Ragno gigante</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_worm.png" alt="" loading="lazy" width="74" height="48"><figcaption>Verme</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_puffball.png" alt="" loading="lazy" width="68" height="70"><figcaption>Vescia</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_boar.png" alt="" loading="lazy" width="56" height="43"><figcaption>Cinghiale</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_wyvern.png" alt="" loading="lazy" width="72" height="47"><figcaption>Viverna</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_fire_elemental.png" alt="" loading="lazy" width="84" height="130"><figcaption>Elementale del fuoco</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_grimoire.png" alt="" loading="lazy" width="114" height="64"><figcaption>Grimorio volante</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_ice_elemental.png" alt="" loading="lazy" width="64" height="84"><figcaption>Elementale del ghiaccio</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_candle.png" alt="" loading="lazy" width="68" height="108"><figcaption>Candela stregata</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_jelly.png" alt="" loading="lazy" width="100" height="84"><figcaption>Gelatina</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_zombie.png" alt="" loading="lazy" width="60" height="140"><figcaption>Zombie</figcaption></figure>
+<figure class="mob"><img src="../img/enemy_cockatrice.png" alt="" loading="lazy" width="52" height="47"><figcaption>Coccatrice</figcaption></figure>
+		</div>
+		<h3 class="sub-title">Prima di ogni scala, un guardiano</h3>
+		<p class="lead">Troll, ettin, maghi del fuoco, re d'ossa: ogni guardiano ha le sue fasi, le sue combo e un anello di luce a terra che ti dice dove sta per colpire. Leggilo, scansati, colpisci.</p>
+		<div class="guardians">
+<figure class="guardian"><img src="../img/enemy_troll.png" alt="" loading="lazy" width="144" height="188"><figcaption>Troll</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_ettin.png" alt="" loading="lazy" width="168" height="198"><figcaption>Ettin</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_great_serpent.png" alt="" loading="lazy" width="64" height="100"><figcaption>Il serpente gigante</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_mage.png" alt="" loading="lazy" width="130" height="238"><figcaption>Mago del fuoco</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_bog_troll.png" alt="" loading="lazy" width="144" height="188"><figcaption>Troll di palude</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_crystal_golem.png" alt="" loading="lazy" width="152" height="206"><figcaption>Golem di cristallo</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_genie.png" alt="" loading="lazy" width="66" height="106"><figcaption>Il genio della lampada</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_witch.png" alt="" loading="lazy" width="82" height="78"><figcaption>La strega</figcaption></figure>
+<figure class="guardian"><img src="../img/enemy_skeleton_king.png" alt="" loading="lazy" width="104" height="208"><figcaption>Re degli scheletri</figcaption></figure>
+		</div>
+	</div>
+</section>
+
+<section class="section gifts" id="gifts" aria-labelledby="gifts-title">
+	<div class="wrap">
+		<h2 class="section-title" id="gifts-title">I doni</h2>
+		<p class="lead">124 doni, ognuno con la sua fiaba e la sua icona. Ogni dono che tocca il dardo ci lascia il suo segno, e tanti si vedono addosso alla principessa.</p>
+		<ul class="chips tiers"><li class="tier" style="--tier:#73d959">doni semplici</li><li class="tier" style="--tier:#669eff">doni medi</li><li class="tier" style="--tier:#ffd640">doni maggiori</li></ul>
+	</div>
+	<div class="strips">
+<div class="strip"><ul class="strip-track"><li style="--tier:#ffd640"><img src="../img/gift_witch_compass.png" alt="Bussola della strega" title="Bussola della strega" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_breadcrumbs.png" alt="Briciole di pane" title="Briciole di pane" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_hatpin.png" alt="Spillone" title="Spillone" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pebbles.png" alt="Sassolini di Pollicino" title="Sassolini di Pollicino" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_rose_petals.png" alt="Petali di rosa" title="Petali di rosa" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_golden_ball.png" alt="Palla d'oro" title="Palla d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_genie_lamp.png" alt="Lampada del genio" title="Lampada del genio" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_fairy_mirror.png" alt="Specchio fatato" title="Specchio fatato" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_enchanted_spindle.png" alt="Fuso incantato" title="Fuso incantato" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_wind_boots.png" alt="Stivali di vento" title="Stivali di vento" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_ravens.png" alt="I sette corvi" title="I sette corvi" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pied_flute.png" alt="Flauto del pifferaio" title="Flauto del pifferaio" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_mermaid_bubble.png" alt="Bolla della sirenetta" title="Bolla della sirenetta" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_nutcracker.png" alt="Schiaccianoci" title="Schiaccianoci" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_twin_bolt.png" alt="Dardo gemello" title="Dardo gemello" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_godmother_purse.png" alt="Borsa della fata madrina" title="Borsa della fata madrina" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_sun_crown.png" alt="Corona di sole" title="Corona di sole" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_frog.png" alt="Ranocchio del pozzo" title="Ranocchio del pozzo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_ember.png" alt="Tizzone" title="Tizzone" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_fairy_hourglass.png" alt="Clessidra della fata" title="Clessidra della fata" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_dragon_heart.png" alt="Cuore di drago" title="Cuore di drago" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_golden_apple.png" alt="Mela d'oro" title="Mela d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_porridge.png" alt="Porridge di Riccioli d'oro" title="Porridge di Riccioli d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_tear_vial.png" alt="Fiala di lacrime" title="Fiala di lacrime" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_moon_diadem.png" alt="Diadema di luna" title="Diadema di luna" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_rumpel_thread.png" alt="Filo di Tremotino" title="Filo di Tremotino" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_owl_feather.png" alt="Piuma di gufo" title="Piuma di gufo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_cricket.png" alt="Grillo parlante" title="Grillo parlante" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_unicorn_horn.png" alt="Corno di unicorno" title="Corno di unicorno" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_star_chalice.png" alt="Calice stellato" title="Calice stellato" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_golden_goose.png" alt="Oca dalle uova d'oro" title="Oca dalle uova d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_crystal_ball.png" alt="Sfera di cristallo" title="Sfera di cristallo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_wax_candle.png" alt="Candela di cera" title="Candela di cera" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_grandma_lantern.png" alt="Lanterna della nonna" title="Lanterna della nonna" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_crystal_lens.png" alt="Lente di cristallo" title="Lente di cristallo" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pumpkin.png" alt="Zucca di Cenerentola" title="Zucca di Cenerentola" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_bolt_speed.png" alt="Vento in poppa" title="Vento in poppa" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_night_veil.png" alt="Velo della notte" title="Velo della notte" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_jack_bean.png" alt="Fagiolo di Jack" title="Fagiolo di Jack" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_nightingale.png" alt="Usignolo meccanico" title="Usignolo meccanico" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_blue_rose.png" alt="Rosa blu" title="Rosa blu" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_snowflake.png" alt="Fiocco di neve" title="Fiocco di neve" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_snow_queen.png" alt="Cuore della Regina delle nevi" title="Cuore della Regina delle nevi" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_glass_slippers.png" alt="Scarpette di cristallo" title="Scarpette di cristallo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_moon_earrings.png" alt="Orecchini di luna" title="Orecchini di luna" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_rapunzel_braid.png" alt="Treccia di Raperonzolo" title="Treccia di Raperonzolo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_hazelnuts.png" alt="Tre nocciole" title="Tre nocciole" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_puss_boots.png" alt="Gatto con gli stivali" title="Gatto con gli stivali" loading="lazy" width="72" height="72"></li></ul><ul class="strip-track" aria-hidden="true"><li style="--tier:#ffd640"><img src="../img/gift_witch_compass.png" alt="" data-alt="Bussola della strega" title="Bussola della strega" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_breadcrumbs.png" alt="" data-alt="Briciole di pane" title="Briciole di pane" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_hatpin.png" alt="" data-alt="Spillone" title="Spillone" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pebbles.png" alt="" data-alt="Sassolini di Pollicino" title="Sassolini di Pollicino" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_rose_petals.png" alt="" data-alt="Petali di rosa" title="Petali di rosa" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_golden_ball.png" alt="" data-alt="Palla d'oro" title="Palla d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_genie_lamp.png" alt="" data-alt="Lampada del genio" title="Lampada del genio" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_fairy_mirror.png" alt="" data-alt="Specchio fatato" title="Specchio fatato" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_enchanted_spindle.png" alt="" data-alt="Fuso incantato" title="Fuso incantato" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_wind_boots.png" alt="" data-alt="Stivali di vento" title="Stivali di vento" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_ravens.png" alt="" data-alt="I sette corvi" title="I sette corvi" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pied_flute.png" alt="" data-alt="Flauto del pifferaio" title="Flauto del pifferaio" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_mermaid_bubble.png" alt="" data-alt="Bolla della sirenetta" title="Bolla della sirenetta" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_nutcracker.png" alt="" data-alt="Schiaccianoci" title="Schiaccianoci" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_twin_bolt.png" alt="" data-alt="Dardo gemello" title="Dardo gemello" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_godmother_purse.png" alt="" data-alt="Borsa della fata madrina" title="Borsa della fata madrina" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_sun_crown.png" alt="" data-alt="Corona di sole" title="Corona di sole" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_frog.png" alt="" data-alt="Ranocchio del pozzo" title="Ranocchio del pozzo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_ember.png" alt="" data-alt="Tizzone" title="Tizzone" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_fairy_hourglass.png" alt="" data-alt="Clessidra della fata" title="Clessidra della fata" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_dragon_heart.png" alt="" data-alt="Cuore di drago" title="Cuore di drago" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_golden_apple.png" alt="" data-alt="Mela d'oro" title="Mela d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_porridge.png" alt="" data-alt="Porridge di Riccioli d'oro" title="Porridge di Riccioli d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_tear_vial.png" alt="" data-alt="Fiala di lacrime" title="Fiala di lacrime" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_moon_diadem.png" alt="" data-alt="Diadema di luna" title="Diadema di luna" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_rumpel_thread.png" alt="" data-alt="Filo di Tremotino" title="Filo di Tremotino" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_owl_feather.png" alt="" data-alt="Piuma di gufo" title="Piuma di gufo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_cricket.png" alt="" data-alt="Grillo parlante" title="Grillo parlante" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_unicorn_horn.png" alt="" data-alt="Corno di unicorno" title="Corno di unicorno" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_star_chalice.png" alt="" data-alt="Calice stellato" title="Calice stellato" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_golden_goose.png" alt="" data-alt="Oca dalle uova d'oro" title="Oca dalle uova d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_crystal_ball.png" alt="" data-alt="Sfera di cristallo" title="Sfera di cristallo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_wax_candle.png" alt="" data-alt="Candela di cera" title="Candela di cera" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_grandma_lantern.png" alt="" data-alt="Lanterna della nonna" title="Lanterna della nonna" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_crystal_lens.png" alt="" data-alt="Lente di cristallo" title="Lente di cristallo" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pumpkin.png" alt="" data-alt="Zucca di Cenerentola" title="Zucca di Cenerentola" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_bolt_speed.png" alt="" data-alt="Vento in poppa" title="Vento in poppa" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_night_veil.png" alt="" data-alt="Velo della notte" title="Velo della notte" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_jack_bean.png" alt="" data-alt="Fagiolo di Jack" title="Fagiolo di Jack" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_nightingale.png" alt="" data-alt="Usignolo meccanico" title="Usignolo meccanico" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_blue_rose.png" alt="" data-alt="Rosa blu" title="Rosa blu" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_snowflake.png" alt="" data-alt="Fiocco di neve" title="Fiocco di neve" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_snow_queen.png" alt="" data-alt="Cuore della Regina delle nevi" title="Cuore della Regina delle nevi" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_glass_slippers.png" alt="" data-alt="Scarpette di cristallo" title="Scarpette di cristallo" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_moon_earrings.png" alt="" data-alt="Orecchini di luna" title="Orecchini di luna" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_rapunzel_braid.png" alt="" data-alt="Treccia di Raperonzolo" title="Treccia di Raperonzolo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_hazelnuts.png" alt="" data-alt="Tre nocciole" title="Tre nocciole" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_puss_boots.png" alt="" data-alt="Gatto con gli stivali" title="Gatto con gli stivali" loading="lazy" width="72" height="72"></li></ul></div>
+<div class="strip"><ul class="strip-track"><li style="--tier:#ffd640"><img src="../img/gift_pet_goose.png" alt="L'oca d'oro" title="L'oca d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_beast_rose.png" alt="Rosa della Bestia" title="Rosa della Bestia" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_swan_feather.png" alt="Piuma di cigno" title="Piuma di cigno" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_star_cloak.png" alt="Mantello di stelle" title="Mantello di stelle" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_rose_thorns.png" alt="Rosa di spine" title="Rosa di spine" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_doves.png" alt="Colombe di Cenerentola" title="Colombe di Cenerentola" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_envy_mirror.png" alt="Specchio delle brame" title="Specchio delle brame" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_briar_rose.png" alt="Rovo della Bella addormentata" title="Rovo della Bella addormentata" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_red_shoes.png" alt="Scarpette rosse" title="Scarpette rosse" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_frog_ring.png" alt="Anello del principe ranocchio" title="Anello del principe ranocchio" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_dawn_comb.png" alt="Pettine dell'alba" title="Pettine dell'alba" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_silver_bell.png" alt="Campanellino d'argento" title="Campanellino d'argento" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_coral_comb.png" alt="Pettine di corallo" title="Pettine di corallo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_hunter_bow.png" alt="Arco del cacciatore" title="Arco del cacciatore" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_midnight_ring.png" alt="Anello di mezzanotte" title="Anello di mezzanotte" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_tailor_belt.png" alt="Cintura del sarto valoroso" title="Cintura del sarto valoroso" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_spyglass.png" alt="Cannocchiale" title="Cannocchiale" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_halo.png" alt="Aureola" title="Aureola" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_fire_bolt.png" alt="Dardo di fuoco" title="Dardo di fuoco" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_dew_vial.png" alt="Ampolla di rugiada" title="Ampolla di rugiada" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_silver_needle.png" alt="Ago d'argento" title="Ago d'argento" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_bremen_drum.png" alt="Tamburo dei musicanti di Brema" title="Tamburo dei musicanti di Brema" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_queen_scepter.png" alt="Scettro della regina" title="Scettro della regina" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_league_boots.png" alt="Pantofole del piccolo Muck" title="Pantofole del piccolo Muck" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_magic_bean.png" alt="Fagiolo magico" title="Fagiolo magico" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_golden_harp.png" alt="Arpa d'oro" title="Arpa d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_phoenix_feather.png" alt="Piuma di fenice" title="Piuma di fenice" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_hunter_knife.png" alt="Pugnale del cacciatore" title="Pugnale del cacciatore" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_dragon_teeth.png" alt="Denti del drago" title="Denti del drago" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_bluebeard_key.png" alt="Grimaldello di Barbablù" title="Grimaldello di Barbablù" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_dandelion.png" alt="Soffione" title="Soffione" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_horseshoe.png" alt="Ferro di cavallo" title="Ferro di cavallo" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_silver_thimble.png" alt="Ditale d'argento" title="Ditale d'argento" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_sea_trident.png" alt="Tridente del re del mare" title="Tridente del re del mare" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_pearl_string.png" alt="Filo di perle" title="Filo di perle" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_fairy_dust.png" alt="Polvere di fata" title="Polvere di fata" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pitch_heart.png" alt="Cuore di pece" title="Cuore di pece" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_yarn.png" alt="Gomitolo" title="Gomitolo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_witch_shadow.png" alt="Ombra della strega" title="Ombra della strega" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_falling_star.png" alt="Stella cadente" title="Stella cadente" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_clover.png" alt="Quadrifoglio" title="Quadrifoglio" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_rune_ring.png" alt="Anello di rune" title="Anello di rune" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_fairy_cloak.png" alt="Mantello della fata" title="Mantello della fata" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_cat.png" alt="Gatto del marchese di Carabà" title="Gatto del marchese di Carabà" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_spinning_wheel.png" alt="Arcolaio d'oro" title="Arcolaio d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pea.png" alt="Pisello sotto il materasso" title="Pisello sotto il materasso" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_firefly_jar.png" alt="Barattolo di lucciole" title="Barattolo di lucciole" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_lion_heart.png" alt="Cuore di leone" title="Cuore di leone" loading="lazy" width="72" height="72"></li></ul><ul class="strip-track" aria-hidden="true"><li style="--tier:#ffd640"><img src="../img/gift_pet_goose.png" alt="" data-alt="L'oca d'oro" title="L'oca d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_beast_rose.png" alt="" data-alt="Rosa della Bestia" title="Rosa della Bestia" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_swan_feather.png" alt="" data-alt="Piuma di cigno" title="Piuma di cigno" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_star_cloak.png" alt="" data-alt="Mantello di stelle" title="Mantello di stelle" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_rose_thorns.png" alt="" data-alt="Rosa di spine" title="Rosa di spine" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_doves.png" alt="" data-alt="Colombe di Cenerentola" title="Colombe di Cenerentola" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_envy_mirror.png" alt="" data-alt="Specchio delle brame" title="Specchio delle brame" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_briar_rose.png" alt="" data-alt="Rovo della Bella addormentata" title="Rovo della Bella addormentata" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_red_shoes.png" alt="" data-alt="Scarpette rosse" title="Scarpette rosse" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_frog_ring.png" alt="" data-alt="Anello del principe ranocchio" title="Anello del principe ranocchio" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_dawn_comb.png" alt="" data-alt="Pettine dell'alba" title="Pettine dell'alba" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_silver_bell.png" alt="" data-alt="Campanellino d'argento" title="Campanellino d'argento" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_coral_comb.png" alt="" data-alt="Pettine di corallo" title="Pettine di corallo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_hunter_bow.png" alt="" data-alt="Arco del cacciatore" title="Arco del cacciatore" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_midnight_ring.png" alt="" data-alt="Anello di mezzanotte" title="Anello di mezzanotte" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_tailor_belt.png" alt="" data-alt="Cintura del sarto valoroso" title="Cintura del sarto valoroso" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_spyglass.png" alt="" data-alt="Cannocchiale" title="Cannocchiale" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_halo.png" alt="" data-alt="Aureola" title="Aureola" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_fire_bolt.png" alt="" data-alt="Dardo di fuoco" title="Dardo di fuoco" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_dew_vial.png" alt="" data-alt="Ampolla di rugiada" title="Ampolla di rugiada" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_silver_needle.png" alt="" data-alt="Ago d'argento" title="Ago d'argento" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_bremen_drum.png" alt="" data-alt="Tamburo dei musicanti di Brema" title="Tamburo dei musicanti di Brema" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_queen_scepter.png" alt="" data-alt="Scettro della regina" title="Scettro della regina" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_league_boots.png" alt="" data-alt="Pantofole del piccolo Muck" title="Pantofole del piccolo Muck" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_magic_bean.png" alt="" data-alt="Fagiolo magico" title="Fagiolo magico" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_golden_harp.png" alt="" data-alt="Arpa d'oro" title="Arpa d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_phoenix_feather.png" alt="" data-alt="Piuma di fenice" title="Piuma di fenice" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_hunter_knife.png" alt="" data-alt="Pugnale del cacciatore" title="Pugnale del cacciatore" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_dragon_teeth.png" alt="" data-alt="Denti del drago" title="Denti del drago" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_bluebeard_key.png" alt="" data-alt="Grimaldello di Barbablù" title="Grimaldello di Barbablù" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_dandelion.png" alt="" data-alt="Soffione" title="Soffione" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_horseshoe.png" alt="" data-alt="Ferro di cavallo" title="Ferro di cavallo" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_silver_thimble.png" alt="" data-alt="Ditale d'argento" title="Ditale d'argento" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_sea_trident.png" alt="" data-alt="Tridente del re del mare" title="Tridente del re del mare" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_pearl_string.png" alt="" data-alt="Filo di perle" title="Filo di perle" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_fairy_dust.png" alt="" data-alt="Polvere di fata" title="Polvere di fata" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pitch_heart.png" alt="" data-alt="Cuore di pece" title="Cuore di pece" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_yarn.png" alt="" data-alt="Gomitolo" title="Gomitolo" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_witch_shadow.png" alt="" data-alt="Ombra della strega" title="Ombra della strega" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_falling_star.png" alt="" data-alt="Stella cadente" title="Stella cadente" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_clover.png" alt="" data-alt="Quadrifoglio" title="Quadrifoglio" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_rune_ring.png" alt="" data-alt="Anello di rune" title="Anello di rune" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_fairy_cloak.png" alt="" data-alt="Mantello della fata" title="Mantello della fata" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_pet_cat.png" alt="" data-alt="Gatto del marchese di Carabà" title="Gatto del marchese di Carabà" loading="lazy" width="72" height="72"></li><li style="--tier:#669eff"><img src="../img/gift_spinning_wheel.png" alt="" data-alt="Arcolaio d'oro" title="Arcolaio d'oro" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_pea.png" alt="" data-alt="Pisello sotto il materasso" title="Pisello sotto il materasso" loading="lazy" width="72" height="72"></li><li style="--tier:#ffd640"><img src="../img/gift_firefly_jar.png" alt="" data-alt="Barattolo di lucciole" title="Barattolo di lucciole" loading="lazy" width="72" height="72"></li><li style="--tier:#73d959"><img src="../img/gift_lion_heart.png" alt="" data-alt="Cuore di leone" title="Cuore di leone" loading="lazy" width="72" height="72"></li></ul></div>
+	</div>
+	<div class="wrap"><p class="gifts-more">E più in basso, doni di cui è meglio non parlare.</p></div>
+</section>
+
+<section class="section tower" id="tower" aria-labelledby="tower-title">
+	<div class="wrap">
+		<h2 class="section-title" id="tower-title">Fra una discesa e l'altra</h2>
+		<p class="lead">Ogni discesa finisce nella torre, e la torre ricorda.</p>
+		<div class="cards cards-3">
+			<article class="card reveal"><img class="icon" src="../img/icon_promise.png" alt="" width="72" height="72"><h3>Promesse e ricordi</h3><p>Cavalieri e mostri lasciano promesse. Tornata nella torre le scrivi sulla lavagnetta, e diventano ricordi: cose per la tua stanza che ti aiutano nella discesa dopo.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_spell.png" alt="" width="72" height="72"><h3>Incantesimi</h3><p>Al posto del salto c'è un incantesimo: il balzo, per cominciare. Gli altri 6 si imparano seguendo le fiabe, scendendo e studiando nella torre.</p></article>
+			<article class="card reveal"><img class="icon" src="../img/icon_book.png" alt="" width="72" height="60"><h3>La fiaba di domani</h3><p>Sul leggio c'è il diario della principessa. Scrivi una pagina della fiaba di domani, e il piano dove stai per scendere andrà come dice lei.</p></article>
+		</div>
+	</div>
+</section>
+
+<section class="section screens" id="screens" aria-labelledby="screens-title">
+	<div class="wrap">
+		<h2 class="section-title" id="screens-title">Dal castello</h2>
+		<p class="lead">Screenshot della versione 0.12.1, con l'interfaccia vera.</p>
+		<div class="gallery">
+<figure class="shot wide"><a href="../media/shots/01_reliquie.webp"><img src="../media/shots/01_reliquie_small.webp" alt="Prima di scendere: un dono da scegliere fra gli altari." width="640" height="360" loading="lazy"></a><figcaption>Prima di scendere: un dono da scegliere fra gli altari.</figcaption></figure>
+<figure class="shot wide"><a href="../media/shots/03_cavaliere.webp"><img src="../media/shots/03_cavaliere_small.webp" alt="Un cavaliere accasciato: era venuto a salvarti." width="640" height="360" loading="lazy"></a><figcaption>Un cavaliere accasciato: era venuto a salvarti.</figcaption></figure>
+<figure class="shot"><a href="../media/shots/04_troll.webp"><img src="../media/shots/04_troll_small.webp" alt="Il troll delle caverne, contro un dardo di ghiaccio." width="640" height="360" loading="lazy"></a><figcaption>Il troll delle caverne, contro un dardo di ghiaccio.</figcaption></figure>
+<figure class="shot"><a href="../media/shots/06_re_scheletro.webp"><img src="../media/shots/06_re_scheletro_small.webp" alt="Il Re degli scheletri, nelle segrete." width="640" height="360" loading="lazy"></a><figcaption>Il Re degli scheletri, nelle segrete.</figcaption></figure>
+<figure class="shot"><a href="../media/shots/08_negozio.webp"><img src="../media/shots/08_negozio_small.webp" alt="Il negozio: tutto si paga in promesse." width="640" height="360" loading="lazy"></a><figcaption>Il negozio: tutto si paga in promesse.</figcaption></figure>
+<figure class="shot wide"><a href="../media/shots/09_golem.webp"><img src="../media/shots/09_golem_small.webp" alt="Il golem di cristallo, nella torre del mago." width="640" height="360" loading="lazy"></a><figcaption>Il golem di cristallo, nella torre del mago.</figcaption></figure>
+<figure class="shot wide"><a href="../media/shots/10_erborista.webp"><img src="../media/shots/10_erborista_small.webp" alt="La stanza dell'erborista, col suo calderone." width="640" height="360" loading="lazy"></a><figcaption>La stanza dell'erborista, col suo calderone.</figcaption></figure>
+		</div>
+	</div>
+</section>
+
+<section class="section download" id="download" aria-labelledby="download-title">
+	<div class="wrap">
+		<div class="download-box frame">
+			<div class="download-art" aria-hidden="true"><img class="princess" src="../img/princess.png" alt="" width="204" height="472"></div>
+			<div class="download-copy">
+				<h2 class="section-title" id="download-title">Scarica Runess</h2>
+				<p>Gratis, per Windows e Linux. È un prototipo e cresce di continuo: il gioco ti avvisa quando esce una versione nuova.</p>
+				<a class="btn btn-gold btn-big" href="https://yanez86.itch.io/runess" rel="noopener">
+					<span class="arrow-down" aria-hidden="true"></span>
+					<span><strong>Scarica da itch.io</strong><small>Windows · Linux · gratis</small></span>
+				</a>
+				<p class="download-version">Versione 0.12.1, uscita il 17 ottobre 2026</p>
+				<p class="muted">Serve Windows 10 o 11, o Linux a 64 bit, e una scheda video che regga Vulkan o Direct3D 12. Si gioca con mouse e tastiera o col controller. In italiano e in inglese.</p>
+				<p class="warning">Runess è una fiaba, ma non per bambini: tratta temi che possono turbare.</p>
+				<ul class="download-links">
+					<li><a href="changelog.html">Le novità di ogni versione →</a></li>
+					<li><a href="https://yanez86.github.io/runess-wiki/" rel="noopener">La wiki, per chi vuole sapere tutto (con spoiler) ↗</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+</main>
+
+<footer class="footer">
+	<div class="wrap footer-in">
+		<p><img src="../img/icon.png" alt="" width="24" height="24"> Fatto con Godot da HAPPY SQUID INC.</p>
+		<p class="muted">Questo sito è fatto dal codice del gioco, versione 0.12.1: nomi, numeri e immagini sono quelli veri.</p>
+		<p class="muted">Caratteri: Jacquard 24 e Pixelify Sans (SIL Open Font License).</p>
+	</div>
+</footer>
+
+<dialog class="lightbox" id="lightbox">
+	<figure><img alt=""><figcaption></figcaption></figure>
+	<button class="lb-close" type="button" aria-label="Chiudi">×</button>
+	<button class="lb-prev" type="button" aria-label="Immagine precedente">‹</button>
+	<button class="lb-next" type="button" aria-label="Immagine successiva">›</button>
+</dialog>
+
+<script src="../splash.js" defer></script>
+<script src="../site.js" defer></script>
+</body>
+</html>
