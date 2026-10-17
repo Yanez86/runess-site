@@ -170,6 +170,13 @@
 					note.el.classList.toggle("hidden", !ok);
 					if (ok) matches++;
 				});
+				// una parte (Nuove parti, Aggiunte…) senza righe rimaste sparisce col suo titolo
+				list(".rel-notes", item.el).forEach(function (ul) {
+					var empty = words.length > 0 && !ul.querySelector("li:not(.hidden)");
+					ul.classList.toggle("hidden", empty);
+					var title = ul.previousElementSibling;
+					if (title && title.classList.contains("rel-part")) title.classList.toggle("hidden", empty);
+				});
 				var hide = words.length > 0 && matches === 0;
 				item.el.classList.toggle("hidden", hide);
 				var link = links[item.el.id];

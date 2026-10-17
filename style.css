@@ -268,10 +268,13 @@ p { margin: 0 0 1em; }
 .rel-name { font-size: 14px; color: var(--gold-2); padding: 1px 10px; border: 1px solid var(--edge); border-radius: 999px; }
 .rel-latest { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #1a1430; background: var(--gold); padding: 2px 10px; border-radius: 999px; }
 .rel-meta { color: var(--dim); font-size: 14px; }
-.rel-notes { margin: 0; padding: 0 24px 18px 48px; list-style: none; }
+.rel-body { padding: 0 24px 14px 48px; }
+.rel-part { font: 24px/1 var(--title); color: var(--gold-2); margin: 10px 0 10px -18px; }
+.rel-part:first-child { margin-top: 2px; }
+.rel-notes { margin: 0 0 8px; padding: 0; list-style: none; }
 .rel-notes li { position: relative; margin: 0 0 12px; font-size: 16.5px; color: var(--soft); }
 .rel-notes li::before { content: ""; position: absolute; left: -18px; top: 0.65em; width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); box-shadow: 0 0 6px var(--gold); }
-.rel-notes li.hidden, .release.hidden { display: none; }
+.rel-notes li.hidden, .release.hidden, .rel-part.hidden, .rel-notes.hidden { display: none; }
 .to-top { position: fixed; right: 16px; bottom: 16px; z-index: 40; width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; color: var(--gold-2); text-decoration: none; font-size: 20px; border: 1px solid var(--gold); background: rgba(14, 22, 52, 0.85); opacity: 0; pointer-events: none; transition: opacity 0.2s; }
 .to-top.show { opacity: 1; pointer-events: auto; }
 
@@ -295,7 +298,7 @@ p { margin: 0 0 1em; }
 	.release summary { padding: 12px 14px 12px 40px; }
 	.release summary::before { left: 14px; top: 14px; }
 	.rel-version { font-size: 30px; }
-	.rel-notes { padding: 0 14px 14px 38px; }
+	.rel-body { padding: 0 14px 12px 38px; }
 	.release { scroll-margin-top: 120px; }
 }
 @media (max-width: 520px) {
