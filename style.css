@@ -91,8 +91,16 @@ p { margin: 0 0 1em; }
 .hero-in { max-width: 820px; }
 .crown { position: relative; width: min(420px, 78vw); margin: 0 auto; }
 .crown svg { display: block; width: 100%; overflow: visible; }
-.crown path { fill: none; stroke: var(--gold); stroke-width: 1.5; opacity: 0.8; stroke-dasharray: 900; stroke-dashoffset: 0; }
-.crown circle { fill: var(--gold-2); filter: drop-shadow(0 0 6px var(--gold)); }
+.crown .line-edge { fill: none; stroke: rgba(8, 5, 4, 0.7); stroke-width: 4; stroke-dasharray: 900; stroke-dashoffset: 0; }
+.crown .line { fill: none; stroke: var(--gold); stroke-width: 2; opacity: 0.85; stroke-dasharray: 900; stroke-dashoffset: 0; }
+/* le stelle come nel planetario del gioco (SkySign): croce a pixel, contorno scuro, cuore chiaro, e ogni tanto brillano */
+.crown .star { filter: drop-shadow(0 0 5px rgba(242, 199, 90, 0.55)); }
+.crown .edge { fill: rgba(8, 5, 4, 0.8); }
+.crown .body, .crown .ray { fill: var(--gold); }
+.crown .key .body { fill: var(--gold-2); }
+.crown .core { fill: #fff6dc; }
+.crown .flare { fill: var(--gold-2); opacity: 0; animation: twinkle 5s var(--t) infinite; }
+@keyframes twinkle { 0%, 82%, 100% { opacity: 0; } 86%, 92% { opacity: 1; } }
 .crown .comet { display: none; }
 .title { font: clamp(96px, 17vw, 200px)/0.85 var(--title); color: var(--gold); margin: 10px 0 0; text-shadow: 0 0 40px rgba(242, 199, 90, 0.35); }
 .tagline { font-size: clamp(19px, 2.3vw, 25px); color: var(--gold-2); margin: 14px 0 22px; }
@@ -102,15 +110,8 @@ p { margin: 0 0 1em; }
 
 /* L'apertura, una volta per sessione (splash.js): una cometa attraversa la corona e ne accende le stelle, le righe le
    uniscono, poi sale il titolo e arriva il resto. Senza .intro la pagina è già ferma così. */
-.intro .crown path { stroke-dashoffset: 900; animation: draw 1.6s 1.2s ease-out forwards; }
-.intro .crown circle { opacity: 0; transform-box: fill-box; transform-origin: center; animation: star 0.6s forwards; }
-.intro .crown circle:nth-of-type(1) { animation-delay: 0.45s; }
-.intro .crown circle:nth-of-type(2) { animation-delay: 0.55s; }
-.intro .crown circle:nth-of-type(3) { animation-delay: 0.75s; }
-.intro .crown circle:nth-of-type(4) { animation-delay: 0.95s; }
-.intro .crown circle:nth-of-type(5) { animation-delay: 1.15s; }
-.intro .crown circle:nth-of-type(6) { animation-delay: 1.35s; }
-.intro .crown circle:nth-of-type(7) { animation-delay: 1.45s; }
+.intro .crown .line-edge, .intro .crown .line { stroke-dashoffset: 900; animation: draw 1.6s 1.2s ease-out forwards; }
+.intro .crown .star { opacity: 0; transform-box: fill-box; transform-origin: center; animation: star 0.6s var(--d) forwards; }
 .intro .crown .comet {
 	display: block; position: absolute; top: 18%; left: -30%; width: 34%; height: 3px; border-radius: 3px; opacity: 0;
 	background: linear-gradient(90deg, transparent, rgba(143, 216, 255, 0.6), #fff);
